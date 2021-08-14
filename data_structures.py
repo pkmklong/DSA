@@ -1,4 +1,4 @@
-"""Basic data structures"
+"""Basic data structures"""
 
 class Stack:
     def __init__(self):
@@ -18,6 +18,3 @@ class Stack:
 
     def size(self):
         return  len(self.items)
-
-
-
