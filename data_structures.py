@@ -18,3 +18,20 @@ class Stack:
 
     def size(self):
         return  len(self.items)
+       
+
+
+class Node:
+    def  __init__(self, value = None): 
+        self.next_node = None
+        self.value = value
+
+class LinkedList():
+     def __init__(self):
+         self.head = None
+
+     def print_list(self):
+         print_value = self.head
+         while print_value != None:
+             print(print_value.value)
+             print_value = print_value.next_node
