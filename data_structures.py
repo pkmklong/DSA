@@ -1,5 +1,7 @@
 """Basic data structures"""
 
+from typing import List
+
 class Stack:
     def __init__(self):
          self.items = []
@@ -61,3 +63,14 @@ class LinkedList:
         while current_node.next_node.next_node:
             current_node = current_node.next_node
         current_node.next_node = None
+
+ 
+class Heap:
+    def __init__(self, data: List):
+        self.data = data
+          
+    def first_node(self):
+        return self.data[0]
+    
+    def last_node(self):
+        return self.data[-1]
