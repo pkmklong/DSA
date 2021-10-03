@@ -12,7 +12,7 @@ This package impliments classic data structures and algorithms for review and ex
     + [Bubble Sort](#Bubble-Sort)
     + [Selection Sort](#Selection-Sort)
     + [Insertion Sort](#Insertion-Sort)
-    + [Quick Sort](#Quick Sort)
+    + [Quick Sort](#Quick-Sort)
     + [Merge Sort](#Merge-Sort)
   * [Search Algorithms](#Searching-Algorithms)
     + [Linear Search](#Linear-Search)
