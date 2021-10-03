@@ -25,24 +25,24 @@ This package impliments classic data structures and algorithms for review and ex
 <details>
  <summary>Code</summary>
  
- class Stack:
-    def __init__(self):
-         self.items = []
+  class Stack:
+     def __init__(self):
+          self.items = []
 
-    def checkEmpty(self):
-        return self.items == []
+     def checkEmpty(self):
+         return self.items == []
 
-    def push(self, item):
-        self.items.append(item)
+     def push(self, item):
+         self.items.append(item)
 
-    def pop(self):
-        return self.items.pop()
+     def pop(self):
+         return self.items.pop()
 
-    def peek(self):
-        return self.items[self.size -1]
+     def peek(self):
+         return self.items[self.size -1]
 
-    def size(self):
-        return  len(self.items)
+     def size(self):
+         return  len(self.items)
 </details>
 
 ### Queue
