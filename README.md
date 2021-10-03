@@ -24,6 +24,7 @@ This package impliments classic data structures and algorithms for review and ex
 ### Stack
 <details>
 </details>
+
 ### Queue
 ### Deque
 ### Linked Lists
