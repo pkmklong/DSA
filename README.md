@@ -3,7 +3,7 @@ This package impliments classic data structures and algorithms for review and ex
 ## Table of Contents
 - [DSA from Scratch](#dsa-from-scratch)
   * [Data Structures & Abstract Data Types](#Data-Structures-&-Abstract-Data-Types)
-    + [Stack](#stacks)
+    + [Stack](#stack)
     + [Queue](#Queue)
     + [Deque](#Deque)
     + [Linked Lists](#Linked-Lists)
