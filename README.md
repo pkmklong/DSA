@@ -11,12 +11,12 @@ This package impliments classic data structures and algorithms for review and ex
 
 
 
-Data Structures & Abstract Data Types
-* Stack
-* Queue
-* Deque
-* Linked Lists
-* Heap
+## Data Structures & Abstract Data Types
+### Stack
+### Queue
+### Deque
+### Linked Lists
+### Heap
 
 Sorting Algorithms
 * Bubble Sort
