@@ -8,8 +8,15 @@ This package impliments classic data structures and algorithms for review and ex
     + [Deque](#Deque)
     + [Linked Lists](#Linked-Lists)
     + [Heap](#Heap)
-
-
+ * [Sort Algorithms](#Sorting-Algorithms)
+    + [Bubble Sort](#Bubble-Sort)
+    + [Selection Sort](#Selection-Sort)
+    + [Insertion Sort](#Insertion-Sort)
+    + [Quick Sort](#Quick Sort)
+    + [Merge Sort](#Merge-Sort)
+ * [Search Algorithms](#Searching-Algorithms)
+    + [Linear Search](#Linear-Search)
+    + [Binary Search](#Binary-Search)
 
 ## Data Structures & Abstract Data Types
 ### Stack
@@ -18,13 +25,13 @@ This package impliments classic data structures and algorithms for review and ex
 ### Linked Lists
 ### Heap
 
-Sorting Algorithms
-* Bubble Sort
-* Selection Sort
-* Insertion Sort
-* Quick Sort
+## Sort Algorithms
+### Bubble Sort
+### Selection Sort
+### Insertion Sort
+### Quick Sort
+### Merge Sort
 
-Searching Algorithms
-* Linear Search
-* Binary Search
-* Merge Sort
+## Search Algorithms
+### Linear Search
+### Binary Search
