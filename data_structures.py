@@ -6,13 +6,13 @@ class Stack:
     def __init__(self):
          self.items = []
 
-    def  checkEmpty(self):
+    def checkEmpty(self):
         return self.items == []
 
-    def  push(self, item):
+    def push(self, item):
         self.items.append(item)
 
-    def  pop (self):
+    def pop(self):
         return self.items.pop()
 
     def peek(self):
@@ -21,12 +21,36 @@ class Stack:
     def size(self):
         return  len(self.items)
 
+    
+class Deque:
+    def __init__(self):
+        self.items = []
+
+    def checkEmpty(self):
+        return self.items == []
+
+    def addFront(self, item):
+        self.items.append(item)
+
+    def addRear(self, item):
+        self.items.insert(0,item)
+
+    def popFront(self):
+        return self.items.pop()
+
+    def popRear(self):
+        return self.items.pop(0)
+
+    def size(self):
+        return len(self.items)
+
 
 class Node:
     def __init__(self, value = None):
         self.next_node = None
         self.value = value
 
+        
 class LinkedList:
     def __init__(self):
         self.head = None
