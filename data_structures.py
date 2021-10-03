@@ -25,7 +25,7 @@ class Node:
         self.next_node = None
         self.value = value
 
-class LinkedList():
+class LinkedList:
     def __init__(self):
         self.head = None
 
