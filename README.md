@@ -1,4 +1,5 @@
-## About This package impliments classic data structures and algorithms for review and exploration.
+## About 
+This package impliments classic data structures and algorithms for review and exploration.
 
 ## Table of Contents
 - [DSA from Scratch](#dsa-from-scratch)
