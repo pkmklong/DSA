@@ -54,6 +54,7 @@ This package impliments classic data structures and algorithms for review and ex
 ### Deque
 <details>
  <summary>Code</summary>
+ 
     class Deque:
        def __init__(self):
            self.items = []
@@ -81,6 +82,7 @@ This package impliments classic data structures and algorithms for review and ex
 ### Linked Lists
 <details>
  <summary>Code</summary>
+ 
     class Node:
         def __init__(self, value = None):
             self.next_node = None
