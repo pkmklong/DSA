@@ -24,6 +24,7 @@ This package impliments classic data structures and algorithms for review and ex
 ### Stack
 <details>
  <summary>Code</summary>
+ 
  class Stack:
     def __init__(self):
          self.items = []
