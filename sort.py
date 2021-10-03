@@ -1,6 +1,8 @@
 """Basic sort algorithms"""
 
-def bubble_sort(arr):
+from typing import List
+
+def bubble_sort(arr: List):
     n = len(arr)
     for i in range(n):
         for j in  range(0, n-i-1):
@@ -10,7 +12,7 @@ def bubble_sort(arr):
     return arr
 
 
-def selection_sort(arr):
+def selection_sort(arr: List):
     
     for start_index in range(len(arr) -1, 0, -1):
         
