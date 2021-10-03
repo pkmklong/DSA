@@ -66,6 +66,8 @@ class LinkedList:
 
  
 class Heap:
+    """Heap data structure with list implementation"""
+    
     def __init__(self, data: List):
         self.data = data
           
@@ -74,3 +76,9 @@ class Heap:
     
     def last_node(self):
         return self.data[-1]
+    
+    def left_child_index(self, index):
+        return (index * 2) + 1
+    
+    def right_child_index(self, index):
+        return (index * 2) + 2
