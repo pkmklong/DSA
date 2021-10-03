@@ -82,3 +82,6 @@ class Heap:
     
     def right_child_index(self, index):
         return (index * 2) + 2
+
+    def parent_index(self, index):
+        return (index - 1) / 2
