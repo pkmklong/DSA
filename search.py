@@ -1,7 +1,17 @@
 """Search algorithms"""
 from typing import List
 
-def binary_rsearch(nums: List[int], target = int) -> bool:
+def linear_search(nums: List[int], target = int)  -> bool:
+  
+    for i in range(len(nums)):
+  
+        if nums[i] == target:
+            return i
+  
+    return False
+
+
+def binary_search_recursive(nums: List[int], target = int) -> bool:
     if len(nums) == 0:
         return False
     mid  = len(nums) // 2
