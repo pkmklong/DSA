@@ -223,6 +223,20 @@ This package impliments classic data structures and algorithms for review and ex
 
 ## Search Algorithms
 ### Linear Search
+<details>
+ <summary>Code</summary>
+ 
+    from typing import List
+
+    def linear_search(nums: List[int], target = int)  -> bool:
+
+        for i in range(len(nums)):
+
+            if nums[i] == target:
+                return i
+
+        return False
+</details>     
 
 ### Binary Search
 <details>
@@ -230,7 +244,7 @@ This package impliments classic data structures and algorithms for review and ex
  
     from typing import List
 
-    def binary_rsearch(nums: List[int], target = int) -> bool:
+    def binary_search_recursive(nums: List[int], target = int) -> bool:
         if len(nums) == 0:
             return False
         mid  = len(nums) // 2
