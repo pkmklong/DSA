@@ -26,6 +26,7 @@ This package impliments classic data structures and algorithms for review and ex
  <summary>Code</summary>
  
     class Stack:
+ 
        def __init__(self):
             self.items = []
 
@@ -49,6 +50,27 @@ This package impliments classic data structures and algorithms for review and ex
 ### Queue
 <details>
  <summary>Code</summary>
+  
+   class Queue:
+
+      def __init__(self):
+          self.items = []
+
+      def checkEmpty(self):
+          return self.items == []
+
+      def front(self):
+          return self.items[-1]
+
+      def back(self):
+          return self.items[0]
+
+      def enqueue(self, x: int):
+          self.x = x
+          self.items.insert(0, x)       
+
+      def dequeue(self):
+          self.items.pop()
 </details> 
 
 ### Deque
@@ -56,6 +78,7 @@ This package impliments classic data structures and algorithms for review and ex
  <summary>Code</summary>
  
     class Deque:
+ 
        def __init__(self):
            self.items = []
 
@@ -84,12 +107,14 @@ This package impliments classic data structures and algorithms for review and ex
  <summary>Code</summary>
  
     class Node:
+ 
         def __init__(self, value = None):
             self.next_node = None
             self.value = value
 
 
     class LinkedList:
+ 
         def __init__(self):
             self.head = None
 
