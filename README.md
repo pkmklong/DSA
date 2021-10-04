@@ -201,7 +201,7 @@ This package impliments classic data structures and algorithms for review and ex
 <details>
  <summary>Code</summary>
 
-   def selection_sort(arr: List):
+    def selection_sort(arr: List):
 
        for start_index in range(len(arr) -1, 0, -1):
 
@@ -227,6 +227,7 @@ This package impliments classic data structures and algorithms for review and ex
 ### Binary Search
 <details>
  <summary>Code</summary>
+ 
     from typing import List
 
     def binary_rsearch(nums: List[int], target = int) -> bool:
@@ -260,7 +261,8 @@ This package impliments classic data structures and algorithms for review and ex
 ### Fibonacci
 <details>
  <summary>Code</summary>
-   def fib(n, memo = {}):
+ 
+    def fib(n, memo = {}):
      # Returns nth Fibonacci value using recursion and memoization
        if n == 0: 
            return 0
