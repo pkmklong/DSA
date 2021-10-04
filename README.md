@@ -129,6 +129,30 @@ This package impliments classic data structures and algorithms for review and ex
 </details>
 
 ### Heap
+<details>
+ <summary>Code</summary>
+
+    class Heap:
+        """Heap data structure with list implementation"""
+
+        def __init__(self, data: List):
+            self.data = data
+
+        def first_node(self):
+            return self.data[0]
+
+        def last_node(self):
+            return self.data[-1]
+
+        def left_child_index(self, index):
+            return (index * 2) + 1
+
+        def right_child_index(self, index):
+            return (index * 2) + 2
+
+        def parent_index(self, index):
+            return (index - 1) / 2
+ </details>
 
 ## Sort Algorithms
 ### Bubble Sort
