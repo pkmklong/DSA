@@ -3,6 +3,7 @@
 from typing import List
 
 class Stack:
+    
     def __init__(self):
          self.items = []
 
@@ -21,8 +22,32 @@ class Stack:
     def size(self):
         return  len(self.items)
 
-    
+  
+class Queue:
+
+    def __init__(self):
+        self.items = []
+
+    def checkEmpty(self):
+        return self.items == []
+
+    def front(self):
+        return self.items[-1]
+
+    def back(self):
+        return self.items[0]
+
+    def enqueue(self, x: int):
+        self.x = x
+        self.items.insert(0, x)       
+
+    def dequeue(self):
+        self.items.pop()
+
+
+
 class Deque:
+    
     def __init__(self):
         self.items = []
 
@@ -52,6 +77,7 @@ class Node:
 
         
 class LinkedList:
+    
     def __init__(self):
         self.head = None
 
