@@ -19,6 +19,8 @@ This package impliments classic data structures and algorithms for review and ex
   * [Search Algorithms](#Searching-Algorithms)
     + [Linear Search](#Linear-Search)
     + [Binary Search](#Binary-Search)
+  * [Recursion](#Recursion)
+    + [Fibonacci](#Fibonacci)
 
 ## Data Structures & Abstract Data Types
 ### Stack
@@ -51,26 +53,26 @@ This package impliments classic data structures and algorithms for review and ex
 <details>
  <summary>Code</summary>
   
-   class Queue:
+    class Queue:
 
-      def __init__(self):
-          self.items = []
+       def __init__(self):
+           self.items = []
 
-      def checkEmpty(self):
-          return self.items == []
+       def checkEmpty(self):
+           return self.items == []
 
-      def front(self):
-          return self.items[-1]
+       def front(self):
+           return self.items[-1]
 
-      def back(self):
-          return self.items[0]
+       def back(self):
+           return self.items[0]
 
-      def enqueue(self, x: int):
-          self.x = x
-          self.items.insert(0, x)       
+       def enqueue(self, x: int):
+           self.x = x
+           self.items.insert(0, x)       
 
-      def dequeue(self):
-          self.items.pop()
+       def dequeue(self):
+           self.items.pop()
 </details> 
 
 ### Deque
@@ -181,11 +183,90 @@ This package impliments classic data structures and algorithms for review and ex
 
 ## Sort Algorithms
 ### Bubble Sort
+<details>
+ <summary>Code</summary>
+ 
+    from typing import List
+
+    def bubble_sort(arr: List):
+        n = len(arr)
+        for i in range(n):
+            for j in  range(0, n-i-1):
+                if arr[j] > arr[j+1]:
+                    arr[j], arr[j+1] = arr[j+1], arr[j]
+        return arr 
+</details>
+
 ### Selection Sort
+<details>
+ <summary>Code</summary>
+
+   def selection_sort(arr: List):
+
+       for start_index in range(len(arr) -1, 0, -1):
+
+           max_index = 0
+
+           for scan_index in range(1, start_index + 1):
+               if arr[scan_index] > arr[max_index]:
+                    max_index = scan_index
+
+           arr[start_index], arr[max_index] = \
+           arr[max_index], arr[start_index]
+
+       return arr
+</details>     
+       
 ### Insertion Sort
 ### Quick Sort
 ### Merge Sort
 
 ## Search Algorithms
 ### Linear Search
+
 ### Binary Search
+<details>
+ <summary>Code</summary>
+    from typing import List
+
+    def binary_rsearch(nums: List[int], target = int) -> bool:
+        if len(nums) == 0:
+            return False
+        mid  = len(nums) // 2
+        if target == nums[mid]:
+            return True
+        elif target < nums[mid]:
+            return binary_rsearch(nums[:mid], target)
+        elif target > nums[mid]:
+            return binary_rsearch(nums[mid+1:], target)
+ 
+ 
+    def binary_search(nums: List[int], target = int) -> int:
+       first = 0
+       last = len(nums) - 1
+
+       while first <= last:
+           mid = (first + last) // 2
+           if target == nums[mid]:
+               return mid
+           elif target < nums[mid]:
+               last = mid -1
+           elif target > nums[mid]:
+               first = mid + 1
+       return -1
+</details>
+ 
+## Recursion
+### Fibonacci
+<details>
+ <summary>Code</summary>
+   def fib(n, memo = {}):
+     # Returns nth Fibonacci value using recursion and memoization
+       if n == 0: 
+           return 0
+       if n == 1: 
+           return 1
+       if not memo.get(n):
+                memo[n] = fib(n-1, memo) + fib(n-2, memo) 
+       return memo[n]
+</details>
