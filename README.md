@@ -187,17 +187,14 @@ This package impliments classic data structures and algorithms for review and ex
  <summary>Code</summary>
  
     from typing import List
-
-    def bubble_sort(arr: List):
  
-       n = len(arr) 
-       for i in range(0, n-1):
-          for j in range(i+1, n):
-             # compare 
-             if arr[i] > arr[j]:
-                 # swap 
-                 arr[i], arr[j] = arr[j], arr[i]
-       return arr
+    def bubble_sort(arr:List):
+        n = len(arr)
+        for i in range(0, n-1):
+            for j in range(0, n-1-i):
+                if arr[j] > arr[j+1]:
+                    arr[j], arr[j+1], = arr[j+1], arr[j]
+        return arr
 </details>
 
 ### Selection Sort
