@@ -222,6 +222,23 @@ This package impliments classic data structures and algorithms for review and ex
 </details>     
        
 ### Insertion Sort
+<details>
+ <summary>Code</summary>
+ 
+    from typing import List
+
+    def insertion_sort(arr: List[int]):
+
+        for i in range(0,len(arr)):
+            ref = arr[i]
+            j = i - 1
+            while j >= 0 and arr[j] > ref:
+                arr[j + 1] = arr[j]
+                j -= 1
+            arr[j+1] = ref
+        return arr
+</details>   
+
 ### Quick Sort
 ### Merge Sort
 
