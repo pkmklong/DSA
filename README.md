@@ -190,10 +190,14 @@ This package impliments classic data structures and algorithms for review and ex
  
     def bubble_sort(arr:List):
         n = len(arr)
+        swapped = True
         for i in range(0, n-1):
             for j in range(0, n-1-i):
                 if arr[j] > arr[j+1]:
                     arr[j], arr[j+1], = arr[j+1], arr[j]
+                    swapped = False
+                if swapped == False:
+                    break
         return arr
 </details>
 
