@@ -6,9 +6,10 @@ This package impliments classic data structures and algorithms for review and ex
   * [About](#About)
   * [Data Structures & Abstract Data Types](#Data-Structures-&-Abstract-Data-Types)
     + [Stack](#stack)
-    + [Queue](#Queue)
-    + [Deque](#Deque)
-    + [Linked Lists](#Linked-Lists)
+    + [Queue](#queue)
+    + [Deque](#deque)
+    + [Linked Lists](#linked-lists)
+    + [Doubly Linked Lists](#doubly-linked-lists)
     + [Heap](#Heap)
   * [Sort Algorithms](#Sort-Algorithms)
     + [Bubble Sort](#Bubble-Sort)
@@ -223,9 +224,12 @@ This package impliments classic data structures and algorithms for review and ex
                 temp.next = before # swap arrow direction
                 before = temp
                 temp = after
-                
-            
 
+</details>
+
+### Doubly Linked Lists
+<details>
+ <summary>Code</summary>
 </details>
 
 ### Heap
