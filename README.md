@@ -110,48 +110,121 @@ This package impliments classic data structures and algorithms for review and ex
  
     class Node:
  
-        def __init__(self, value = None):
-            self.next_node = None
-            self.value = value
+        def __init__(self, val = None):
+            self.next = None
+            self.val = val
 
 
     class LinkedList:
  
-        def __init__(self):
-            self.head = None
+        def __init__(self, val):
+            nn = Node(val)
+            self.head = nn
+            self.tail = nn
+            self.length = 1
 
         def print_list(self):
-            print_value = self.head
-            while print_value != None:
-                print(print_value.value)
-                print_value = print_value.next_node
+            temp = self.head
+            while temp:
+                print(temp.val)
+                temp = temp.next
 
-        def insert_end(self, value):
-            new_node = Node(value)
-            if not self.head:
-                self.head = new_node
-                return
-            current_node = self.head
-            while current_node.next_node:
-                current_node = current_node.next_node
-            current_node.next_node = new_node
+        def append(self, val):
+            nn = Node(val)
+            if self.length == 0:
+                self.head, self.tail = nn, nn
+             else:
+                self.tail.next = nn
+                self.tail = nn
+                self.length += 1
 
-        def insert_start(self, value):
-            new_node = Node(value)
-            new_node.next_node = self.head
-            self.head = new_node
+        def prepend(self, val):
+            nn = Node(val)
+            if self.length == 0:
 
-        def delete_start(self):
-            if self.head.next_node:
-                self.head = self.head.next_node
             else:
-                self.head = None
+                nn.next = self.head
+                self.head = nn
+            self.length += 1
 
-        def delete_end(self):
-            current_node = self.head
-            while current_node.next_node.next_node:
-                current_node = current_node.next_node
-            current_node.next_node = None
+        def pop_first(self):
+            if self.lenth == 0:
+               return None
+            temp = self.head
+            self.head = temp.next
+            temp.next = None
+
+        def pop(self):
+            temp, prev = self.head, self.head
+            while temp.next:
+                prev = temp
+                temp = temp.next  
+            self.tail = prev
+            prev.next = None
+            self.length -= 1
+            if self.length == 0:
+                self.head, self.tail = None, None
+            return temp
+
+        def get(self, ind):
+            if ind > 0 and ind >= self.length:
+                return None
+            else:
+                temp = self.head
+                for _ in range(self.length):
+                     temp = temp.next
+                return temp
+
+        def set_val(self, ind, val):
+            temp = self.get(ind)
+            if temp:
+                temp.val = val
+                return True
+            return False
+        
+        def insert(self, ind, val):
+            if ind < 0 or in > self.length:
+                return None
+            elif ind == 0:
+                return self.prepend(val)
+            elif ind = self.length:
+                return self.append(val)
+            else:
+                nn = None(va)
+                temp = self.get(ind - 1)
+                nn.next = temp.next
+                temp.next = nn
+             self.length += 1
+             return True
+
+        def remove(self, ind):
+            if ind < 0 or in >= self.length:
+                return none
+            elif ind == 0:
+                retun self.pop_first()
+            elif ind == self.length:
+                return self.pop()
+            else:
+                prev = self.get(ind - 1)
+                temp = prev.next
+                prev.next = prev.next.next
+                temp.next = None
+            self.length -= 1
+            return temp
+
+        def reverse(self):
+            temp = self.head
+            self.head = self.tail
+            self.tail = temp
+            after = tmp.next
+            before = temp
+            for _ in range(self.length):
+                after = temp.next
+                temp.next = before # swap arrow direction
+                before = temp
+                temp = after
+                
+            
 
 </details>
 
