@@ -172,7 +172,7 @@ This package impliments classic data structures and algorithms for review and ex
                 return None
             else:
                 temp = self.head
-                for _ in range(self.length):
+                for _ in range(ind):
                      temp = temp.next
                 return temp
 
