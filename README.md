@@ -142,7 +142,7 @@ This package impliments classic data structures and algorithms for review and ex
         def prepend(self, val):
             nn = Node(val)
             if self.length == 0:
-
+                self.head, self.tail = nn, nn
             else:
                 nn.next = self.head
                 self.head = nn
