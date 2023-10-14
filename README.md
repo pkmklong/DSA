@@ -227,6 +227,120 @@ This package impliments classic data structures and algorithms for review and ex
 ### Doubly Linked Lists
 <details>
  <summary>Code</summary>
+
+    class Node:
+        def __init__(self, val):
+            self.val = val
+            self.next = None
+            self.prev = None
+
+    class DoublyLinkedList:
+        def __init__(self, val):
+            nn = Node(val)
+            self.head = nn
+            self.tail = nn
+            self.length = 1
+
+        def append(self, val):
+            nn = Node(val)
+            if self.head is None:
+                self.head, self.tail = nn, nn
+            else:
+                self.tail.next = nn
+                nn.prev = self.tail
+                self.tail = nn
+            self.length += 1
+            return True
+
+        def pop(self):
+            if self.length == 0:
+                return None
+            temp = self.tail
+            self.tail = self.tail.prev
+            self.tail.next = None
+            temp.prev = None
+            self.length -= 1
+            if self.length == 0:
+                self.head, self.tail = None, None
+            return temp
+
+        def prepend(self, val):
+            nn = Node(val)
+            if self.length == 0:
+                self.head, self.tail = nn, nn
+            else:
+                nn.next = self.head
+                self.head.prev = nn
+                self.head = nn
+            self.length += 1
+            return True
+
+        def pop_first(self):
+            if self.length == 0:
+                return None
+            temp = self.head
+            if self.length == 1:
+                self.head, self.tail = None, None
+            else:
+                self.head = self.head.next
+                self.head.prev = None
+                temp.next = None
+            self.length -= 1
+            return temp
+
+        def get(self, ind):
+            if ind < 0 or ind >= self.length:
+                return None
+            temp = self.head
+            if ind < self.length / 2:
+                for _ in range(ind):
+                    temp = temp.next
+            else:
+                temp = self.tail
+                for _ in range(self.length - 1, ind, -1):
+                    temp = temp.prev
+            return temp
+
+        def set_val(self, ind, val):
+            temp = self.get(ind)
+            if temp:
+                temp.val = val
+                return True
+            else:
+                return False
+
+        def insert(self, ind, val):
+            if ind < 0 or ind > self.length:
+                return False
+            if ind == 0:
+                return self.prepend(val)
+            if ind == self.length:
+                return self.append(val)
+            nn = Node(val)
+            before = self.get(ind - 1)
+            after = before.next
+            nn.prev = before
+            nn.next = after
+            before.next = nn
+            after.prev = nn
+            self.length += 1
+            return True
+
+        def remove(self, ind):
+            if ind < 0 or ind >= self.length:
+                return None
+            if ind == 0:
+                return self.pop_first()
+            if ind == self.length - 1:
+                return self.pop()
+            temp = self.get(ind)
+            temp.next.prev = temp.prev
+            temp.prev.next = temp.next
+            temp.next, temp.prev = None, None
+            self.length -= 1
+            return True
+
+ 
 </details>
 
 ### Heap
