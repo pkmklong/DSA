@@ -109,15 +109,12 @@ This package impliments classic data structures and algorithms for review and ex
 <details>
  <summary>Code</summary>
  
-    class Node:
- 
-        def __init__(self, val = None):
-            self.next = None
+     class Node:
+        def __init__(self, val=None):
             self.val = val
-
+            self.next = None
 
     class LinkedList:
- 
         def __init__(self, val):
             nn = Node(val)
             self.head = nn
@@ -134,10 +131,10 @@ This package impliments classic data structures and algorithms for review and ex
             nn = Node(val)
             if self.length == 0:
                 self.head, self.tail = nn, nn
-             else:
+            else:
                 self.tail.next = nn
                 self.tail = nn
-                self.length += 1
+            self.length += 1
 
         def prepend(self, val):
             nn = Node(val)
@@ -149,17 +146,18 @@ This package impliments classic data structures and algorithms for review and ex
             self.length += 1
 
         def pop_first(self):
-            if self.lenth == 0:
-               return None
+            if self.length == 0:
+                return None
             temp = self.head
             self.head = temp.next
             temp.next = None
+            self.length -= 1
 
         def pop(self):
             temp, prev = self.head, self.head
             while temp.next:
                 prev = temp
-                temp = temp.next  
+                temp = temp.next
             self.tail = prev
             prev.next = None
             self.length -= 1
@@ -168,12 +166,12 @@ This package impliments classic data structures and algorithms for review and ex
             return temp
 
         def get(self, ind):
-            if ind > 0 and ind >= self.length:
+            if ind < 0 or ind >= self.length:
                 return None
             else:
                 temp = self.head
                 for _ in range(ind):
-                     temp = temp.next
+                    temp = temp.next
                 return temp
 
         def set_val(self, ind, val):
@@ -182,28 +180,28 @@ This package impliments classic data structures and algorithms for review and ex
                 temp.val = val
                 return True
             return False
-        
+
         def insert(self, ind, val):
-            if ind < 0 or in > self.length:
+            if ind < 0 or ind > self.length:
                 return None
             elif ind == 0:
                 return self.prepend(val)
-            elif ind = self.length:
+            elif ind == self.length:
                 return self.append(val)
             else:
-                nn = None(va)
+                nn = Node(val)
                 temp = self.get(ind - 1)
                 nn.next = temp.next
                 temp.next = nn
-             self.length += 1
-             return True
+            self.length += 1
+            return True
 
         def remove(self, ind):
-            if ind < 0 or in >= self.length:
-                return none
+            if ind < 0 or ind >= self.length:
+                return None
             elif ind == 0:
-                retun self.pop_first()
-            elif ind == self.length:
+                return self.pop_first()
+            elif ind == self.length - 1:
                 return self.pop()
             else:
                 prev = self.get(ind - 1)
@@ -214,16 +212,15 @@ This package impliments classic data structures and algorithms for review and ex
             return temp
 
         def reverse(self):
-            temp = self.head
-            self.head = self.tail
-            self.tail = temp
-            after = tmp.next
-            before = temp
-            for _ in range(self.length):
-                after = temp.next
-                temp.next = before # swap arrow direction
-                before = temp
-                temp = after
+            prev = None
+            current = self.head
+            self.tail = current
+            while current:
+                temp = current.next
+                current.next = prev
+                prev = current
+                current = temp
+            self.head = prev
 
 </details>
 
