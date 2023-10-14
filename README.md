@@ -345,7 +345,50 @@ This package impliments classic data structures and algorithms for review and ex
 </details>   
 
 ### Quick Sort
+
 ### Merge Sort
+<details>
+<summary>Code</summary>
+
+    def merge(l1, l2):
+    
+        # vars
+        combined = [] 
+        i, j = 0, 0 
+
+        # merge lists
+        while i < len(l1) and j < len(l2):
+            if l1[i] <= l2[j]:
+                combined.append(l1[i])
+                i+=1
+            else:
+                combined.append(l2[j])
+                j+=1
+
+        # append remainer to sorted list
+        while i < len(l1):
+            combined.append(l1[i])
+            i+=1
+        while j < len(l2):
+            combined.append(l2[j])
+            j+=1
+
+        return combined
+
+    def merge_sort(l):
+        
+        # base case
+        if len(l) <= 1:
+            return l
+
+        # recursion
+        mid_ind = len(l) // 2
+        left = merge_sort(l[:mid_ind])
+        right = merge_sort(l[mid_ind:])
+
+        return merge(left, right)
+
+</details> 
 
 ## Search Algorithms
 ### Linear Search
