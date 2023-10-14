@@ -343,7 +343,19 @@ This package impliments classic data structures and algorithms for review and ex
 ### Insertion Sort
 <details>
  <summary>Code</summary>
- 
+
+
+     def insertion_sort(l):
+        for i in range(1, len(l)):
+            temp = l[i]
+            j = i-1
+            while (temp < l[j]) and (j > -1):
+                l[j+1] = l[j]
+                l[j] = temp
+                j -= 1
+        return l
+
+        
     from typing import List
 
     def insertion_sort(arr: List[int]):
