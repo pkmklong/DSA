@@ -22,6 +22,7 @@ This package impliments classic data structures and algorithms for review and ex
     + [Binary Search](#Binary-Search)
   * [Recursion](#Recursion)
     + [Fibonacci](#Fibonacci)
+  * [Hash Tables](#Hash-Tables)
 
 ## Data Structures & Abstract Data Types
 ### Stack
@@ -594,4 +595,22 @@ This package impliments classic data structures and algorithms for review and ex
        if not memo.get(n):
                 memo[n] = fib(n-1, memo) + fib(n-2, memo) 
        return memo[n]
+</details>
+
+## Hash-Tables
+
+<details>
+ <summary>Code</summary>
+
+    class HashTable:
+
+        def __init__(self, size = 7):
+            self.data_map = [None] * size
+
+        def _hash(self, key):
+            my_hash = 0
+            for i, letter in enumerate(key):
+                my_hash = (my_hash + ord(letter) * (i+1)) % len(self.data_map)
+            return my_hash
+
 </details>
