@@ -307,6 +307,23 @@ This package impliments classic data structures and algorithms for review and ex
 <details>
  <summary>Code</summary>
 
+
+    def selection_sort(l):
+
+        length = len(l)
+
+        for i in range(length):
+            min_ind = i
+
+            for j in range(i+1, length):
+                if l[min_ind] > l[j]:
+                    min_ind = j
+            if min_ind > i:
+                l[min_ind], l[i] = l[i], l[min_ind]
+                
+        return l
+
+        
     def selection_sort(arr: List):
 
        for start_index in range(len(arr) -1, 0, -1):
