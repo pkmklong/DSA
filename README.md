@@ -10,7 +10,7 @@ This package impliments classic data structures and algorithms for review and ex
     + [Deque](#deque)
     + [Linked Lists](#linked-lists)
     + [Doubly Linked Lists](#doubly-linked-lists)
-    + [Graph](#Heap)
+    + [Graph](#Graph)
     + [Heap](#Heap)
   * [Sort Algorithms](#Sort-Algorithms)
     + [Bubble Sort](#Bubble-Sort)
