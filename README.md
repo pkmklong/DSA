@@ -344,6 +344,7 @@ This package impliments classic data structures and algorithms for review and ex
 
  
 </details>
+
 ### Graph
 <details>
  <summary>Code</summary>
@@ -388,6 +389,7 @@ This package impliments classic data structures and algorithms for review and ex
             return False
  
 </details>
+
 ### Heap
 <details>
  <summary>Code</summary>
