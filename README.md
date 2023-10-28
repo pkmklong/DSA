@@ -25,6 +25,9 @@ This package impliments classic data structures and algorithms for review and ex
   * [Recursion](#Recursion)
     + [Fibonacci](#Fibonacci)
   * [Hash Tables](#Hash-Tables)
+  * [Patterns for Linear Data Structures](#patterns-for-linear-data-structures)
+    + [Two Pointers](#two-pointers)
+      + [Palidrome](#palidrome)
 
 ## Data Structures & Abstract Data Types
 ### Stack
@@ -717,3 +720,36 @@ This package impliments classic data structures and algorithms for review and ex
             return my_hash
 
 </details>
+
+### Patterns for Linear Data Structures
+### Two Pointers
+### Palidrome
+ <details>
+ <summary>Code</summary>  
+  
+    def check_palidrome(s):
+        assert isinstance(s, str)
+        if len(s) == 1:
+            return True
+        l = 0
+        r = len(s) - 1
+        while s[l] == s[r]:
+            print(s[l])
+            print(s[r])
+            l+=1
+            r-=1
+            if l > r:
+                return True
+        return False
+
+    def is_palindrome(s):
+        left = 0
+        right = len(s) - 1
+        while left < right:
+            if s[left] != s[right]:
+                return False
+            left = left + 1 
+            right = right - 1
+        return True
+  
+  </details>
