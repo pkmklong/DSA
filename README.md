@@ -29,6 +29,7 @@ This package impliments classic data structures and algorithms for review and ex
     + [Two Pointers](#two-pointers)
       + [Palidrome](#palidrome)
       + [Sum Three](#sum-three)
+      + [Max Volume](#max-volume)
 
 ## Data Structures & Abstract Data Types
 ### Stack
@@ -778,4 +779,26 @@ This package impliments classic data structures and algorithms for review and ex
 
         return False
         
+  </details>
+
+### Max Volume
+ <details>
+ <summary>Code</summary>  
+  
+      def calc_most_volume(s):
+        lower = 0
+        upper = len(s) - 1
+        max_vol = 0
+        while lower < upper:
+            length = upper - lower
+            height = min(s[lower], s[upper])
+            vol = length * height
+            if vol > max_vol:
+                max_vol = vol
+            if s[lower] >= s[upper]:
+                upper -= 1
+            else:
+                lower += 1
+        return max_vol
+
   </details>
