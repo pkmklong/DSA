@@ -12,6 +12,7 @@ This package impliments classic data structures and algorithms for review and ex
     + [Doubly Linked Lists](#doubly-linked-lists)
     + [Graph](#graph)
     + [Heap](#heap)
+    + [BST](#bst)
   * [Sort Algorithms](#Sort-Algorithms)
     + [Bubble Sort](#Bubble-Sort)
     + [Selection Sort](#Selection-Sort)
@@ -444,6 +445,62 @@ This package impliments classic data structures and algorithms for review and ex
         return arr
  </details>
 
+### BST
+<details>
+ <summary>Code</summary>
+
+    class Node:
+        def __init__(self, val):
+            self.val = val
+            self.left = None
+            self.right = None
+
+
+    class BST:
+
+        def __init__(self):
+            self.root = None
+
+        def insert(self, val):
+            nn = Node(val)
+            if self.root == None:
+                self.root = nn
+                return True
+
+            temp = self.root
+
+            while True:
+                if nn.val == temp.val:
+                    return False
+
+                if nn.val < temp.val:
+                    if temp.left == None:
+                        temp.left = nn
+                        return True
+                    else:
+                        temp == temp.left
+                if nn.val > temp.val:
+                    if temp.right == None:
+                        temp.right = nn
+                        return True
+                    else:
+                        temp = temp.right
+                else:
+                    return False
+
+
+        def contains(self, val):
+            temp = self.root
+            while temp is not None:
+                if val < temp.val:
+                    temp = temp.left
+                if val > temp.val:
+                    temp = temp.right
+                else:
+                    return True
+            return False
+ </details>
+            
 ## Sort Algorithms
 ### Bubble Sort
 <details>
