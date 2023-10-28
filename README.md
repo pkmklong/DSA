@@ -28,6 +28,7 @@ This package impliments classic data structures and algorithms for review and ex
   * [Patterns for Linear Data Structures](#patterns-for-linear-data-structures)
     + [Two Pointers](#two-pointers)
       + [Palidrome](#palidrome)
+      + [Sum Three](#sum-three)
 
 ## Data Structures & Abstract Data Types
 ### Stack
@@ -752,4 +753,29 @@ This package impliments classic data structures and algorithms for review and ex
             right = right - 1
         return True
   
+  </details>
+
+### Sum Three
+ <details>
+ <summary>Code</summary>  
+      
+    def check_sum_of_three(a, target):
+        a.sort()
+
+        for i in range(len(a) - 2):
+            low = i + 1
+            high = len(a) - 1
+
+            while low < high:
+                current_sum = a[i] + a[low] + a[high]
+
+                if current_sum == target:
+                    return True
+                elif current_sum > target:
+                    high -= 1
+                else:
+                    low += 1
+
+        return False
+        
   </details>
