@@ -882,6 +882,9 @@ This package impliments classic data structures and algorithms for review and ex
   
     def detect_cycle(head):
 
+       if head is None:
+          return False
+
        fast,  slow = head, head
        while fast.next:
           fast = fast.next.next
