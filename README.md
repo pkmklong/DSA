@@ -32,7 +32,7 @@ This package impliments classic data structures and algorithms for review and ex
       + [Max Area](#max-area)
       + [Product Except Self](#prod-except-self)
       + [Remove nth Node from Tail](#remove-nth-node-from-tail)
-  * [Two Pointers Fast Slow](#two-pointers-fast-slow)
+    + [Two Pointers Fast Slow](#two-pointers-fast-slow)
       + [Detect Cycle](#detect-cycle)
 
 ## Data Structures & Abstract Data Types
