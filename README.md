@@ -31,6 +31,7 @@ This package impliments classic data structures and algorithms for review and ex
       + [Sum Three](#sum-three)
       + [Max Area](#max-area)
       + [Product Except Self](#prod-except-self)
+      + [Remove nth Node from Tail](#remove-nth-node-from-tail)
 
 ## Data Structures & Abstract Data Types
 ### Stack
@@ -845,4 +846,28 @@ This package impliments classic data structures and algorithms for review and ex
 
         return res
 
+  </details>
+
+### Remove  nth Node From Tail
+ <details>
+ <summary>Code</summary> 
+  
+      def remove_nth_last_node(head, n):
+        l = head
+        r = head
+
+        for i in range(n):
+            r = r.next
+
+        if not r:
+            return head.next
+
+        while r.next:
+            r = r.next
+            l = l.next
+
+        l.next = l.next.next
+
+        return head
+        
   </details>
