@@ -825,4 +825,24 @@ This package impliments classic data structures and algorithms for review and ex
 
         return out
 
+
+    def product_except_self(nums):
+        n = len(nums)
+        res = [1] * n
+        left_product, right_product = 1, 1
+        l = 0
+        r = n - 1
+
+        while l < n and r > -1:
+            res[l] *= left_product
+            res[r] *= right_product
+
+            left_product *= nums[l]
+            right_product *= nums[r]
+
+            l += 1
+            r -= 1
+
+        return res
+
   </details>
