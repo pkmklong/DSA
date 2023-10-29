@@ -29,7 +29,8 @@ This package impliments classic data structures and algorithms for review and ex
     + [Two Pointers](#two-pointers)
       + [Palidrome](#palidrome)
       + [Sum Three](#sum-three)
-      + [Max Volume](#max-volume)
+      + [Max Area](#max-area)
+      + [Product Except Self](#prod-except-self)
 
 ## Data Structures & Abstract Data Types
 ### Stack
@@ -781,11 +782,11 @@ This package impliments classic data structures and algorithms for review and ex
         
   </details>
 
-### Max Volume
+### Max Areea
  <details>
  <summary>Code</summary>  
   
-      def calc_most_volume(s):
+      def calc_max_area(s):
         lower = 0
         upper = len(s) - 1
         max_vol = 0
@@ -800,5 +801,28 @@ This package impliments classic data structures and algorithms for review and ex
             else:
                 lower += 1
         return max_vol
+
+  </details>
+
+### Product Except Self
+ <details>
+ <summary>Code</summary> 
+
+    def product_except_self(s):
+
+        n = len(s)
+        out = [1] * n
+
+        left_prod = 1
+        for i in range(n):
+            out[i] *= left_prod
+            left_prod *= s[i]
+
+        right_prod = 1
+        for i in range(n-1, -1, -1):
+            out[i] *= right_prod
+            right_prod *= s[i]
+
+        return out
 
   </details>
