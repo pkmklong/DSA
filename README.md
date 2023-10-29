@@ -32,6 +32,8 @@ This package impliments classic data structures and algorithms for review and ex
       + [Max Area](#max-area)
       + [Product Except Self](#prod-except-self)
       + [Remove nth Node from Tail](#remove-nth-node-from-tail)
+  * [Two Pointers Fast Slow](#two-pointers-fast-slow)
+      + [Detect Cycle](#detect-cycle)
 
 ## Data Structures & Abstract Data Types
 ### Stack
@@ -870,4 +872,22 @@ This package impliments classic data structures and algorithms for review and ex
 
         return head
         
+  </details>
+
+
+### Two Pointers Fast Slow
+### Detect Cycle
+ <details>
+ <summary>Code</summary> 
+  
+    def detect_cycle(head):
+
+       fast,  slow = head, head
+       while fast.next:
+          fast = fast.next.next
+          slow = slow.next
+          if fast == slow:
+             return True
+       return False
+
   </details>
