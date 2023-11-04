@@ -38,7 +38,7 @@ This package impliments classic data structures and algorithms for review and ex
       + [Binary Search Rotated](#binary-search-rotated)
       + [Recursive Binary Search Rotated](#recursive-binary-search-rotated)
       + [Find Min Val Rotated](#find-min-val-rotated)
-    + [In Place Reversals of Linked Lists](#in-place-reversal-of-linked-lists)
+    + [In Place Reversals of Linked Lists](#in-place-reversals-of-linked-lists)
       + [Fold Linked List](#fold-linked-list)
 
 ## Data Structures & Abstract Data Types
