@@ -37,7 +37,7 @@ This package impliments classic data structures and algorithms for review and ex
     + [Modified Binary Search](#modified-binary-search)
       + [Binary Search Rotated](#binary-search-rotated)
       + [Recursive Binary Search Rotated](#recursive-binary-search-rotated)
-      + [Find Min Val Rotated](#find-mind-val-rotated)
+      + [Find Min Val Rotated](#find-min-val-rotated)
 
 ## Data Structures & Abstract Data Types
 ### Stack
