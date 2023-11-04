@@ -40,6 +40,7 @@ This package impliments classic data structures and algorithms for review and ex
       + [Find Min Val Rotated](#find-min-val-rotated)
     + [In Place Reversals of Linked Lists](#in-place-reversals-of-linked-lists)
       + [Fold Linked List](#fold-linked-list)
+      + [Reverse  Linked List](#reverse-linked-list)
 
 ## Data Structures & Abstract Data Types
 ### Stack
@@ -1020,4 +1021,19 @@ This package impliments classic data structures and algorithms for review and ex
 
         return head
 
+  </details>
+
+### Reverse Linked List
+ <details>
+ <summary>Code</summary> 
+
+      def reverse(head):
+        prev = None
+        cur = head
+        while cur:
+            temp = cur.next # store next
+            cur.next = prev # reverse link
+            prev = cur # incriment prev
+            cur = temp
+        return prev   
   </details>
