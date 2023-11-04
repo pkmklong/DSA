@@ -13,18 +13,18 @@ This package impliments classic data structures and algorithms for review and ex
     + [Graph](#graph)
     + [Heap](#heap)
     + [BST](#bst)
-  * [Sort Algorithms](#Sort-Algorithms)
-    + [Bubble Sort](#Bubble-Sort)
-    + [Selection Sort](#Selection-Sort)
-    + [Insertion Sort](#Insertion-Sort)
-    + [Quick Sort](#Quick-Sort)
-    + [Merge Sort](#Merge-Sort)
-  * [Search Algorithms](#Search-Algorithms)
-    + [Linear Search](#Linear-Search)
-    + [Binary Search](#Binary-Search)
-  * [Recursion](#Recursion)
-    + [Fibonacci](#Fibonacci)
-  * [Hash Tables](#Hash-Tables)
+  * [Sort Algorithms](#sort-algorithms)
+    + [Bubble Sort](#bubble-sort)
+    + [Selection Sort](#Selection-sort)
+    + [Insertion Sort](#insertion-sort)
+    + [Quick Sort](#quick-sort)
+    + [Merge Sort](#merge-sort)
+  * [Search Algorithms](#search-algorithms)
+    + [Linear Search](#linear-search)
+    + [Binary Search](#binary-search)
+  * [Recursion](#recursion)
+    + [Fibonacci](#fibonacci)
+  * [Hash Tables](#hash-tables)
   * [Patterns for Linear Data Structures](#patterns-for-linear-data-structures)
     + [Two Pointers](#two-pointers)
       + [Palidrome](#palidrome)
@@ -34,7 +34,9 @@ This package impliments classic data structures and algorithms for review and ex
       + [Remove nth Node from Tail](#remove-nth-node-from-tail)
     + [Two Pointers Fast Slow](#two-pointers-fast-slow)
       + [Detect Cycle](#detect-cycle)
-    + [Binary Search Rotated](#binary-search-rotated)
+    + [Modified Binary Search](#modified-binary-search)
+      + [Binary Search Rotated](#binary-search-rotated)
+      + [Recursive Binary Search Rotated](#recursive-binary-search-rotated)
 
 ## Data Structures & Abstract Data Types
 ### Stack
@@ -896,7 +898,7 @@ This package impliments classic data structures and algorithms for review and ex
 
   </details>
 
-
+### Modified Binary Search
 ### Binary Search Rotated
  <details>
  <summary>Code</summary> 
@@ -923,4 +925,34 @@ This package impliments classic data structures and algorithms for review and ex
                     high = mid - 1
 
         return False
+  </details>
+
+### Recursive Binary Search Rotated
+ <details>
+ <summary>Code</summary> 
+
+      def binary_search(nums, low, high, target):
+
+        if low > high:
+            return False
+
+        mid = low + (high - low) // 2
+
+        if nums[mid] == target:
+            return mid
+
+        if nums[low] <= nums[mid]:
+            if nums[low] <= target and target < nums[mid]:
+                return binary_search(nums, low, mid-1, target)
+            return binary_search(nums, mid+1, high, target)
+        elif nums[mid] <= nums[high]:
+            if nums[mid] < target and target <= nums[high]:
+                return binary_search(nums, mid+1, high, target)
+            binary_search(nums, low, mid-1, target)
+        return False
+
+
+    def binary_search_rotated(nums, target):
+        return binary_search(nums, 0, len(nums) -1, target)
+
   </details>
