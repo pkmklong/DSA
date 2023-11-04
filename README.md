@@ -38,6 +38,8 @@ This package impliments classic data structures and algorithms for review and ex
       + [Binary Search Rotated](#binary-search-rotated)
       + [Recursive Binary Search Rotated](#recursive-binary-search-rotated)
       + [Find Min Val Rotated](#find-min-val-rotated)
+    + [In Place Reversals of Linked Lists](#in-place-reversal-of-linked-lists)
+      + [Fold Linked List](#fold-linked-list)
 
 ## Data Structures & Abstract Data Types
 ### Stack
@@ -987,5 +989,35 @@ This package impliments classic data structures and algorithms for review and ex
                 left = mid + 1
             else:
                 right = mid - 1
+
+  </details>
+
+### In Place Reversals of Linked Lists
+### Fold Linked List
+ <details>
+ <summary>Code</summary> 
+
+      def fold_linked_list(head):
+        if not head:
+            return head
+        slow = fast = head
+
+        # find middle node
+        while fast and fast.next:
+            slow = slow.next
+            fast = fast.next.next 
+        prev, curr = None, slow
+
+        # reverse second half of linked list
+        while curr:
+            curr.next, prev, curr = prev, curr, curr.next     
+        first, second = head, prev
+
+        # merge lists by alternating links
+        while second.next:
+            first.next, first = second, first.next
+            second.next, second = first, second.next
+
+        return head
 
   </details>
