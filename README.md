@@ -37,7 +37,7 @@ This package impliments classic data structures and algorithms for review and ex
     + [Modified Binary Search](#modified-binary-search)
       + [Binary Search Rotated](#binary-search-rotated)
       + [Recursive Binary Search Rotated](#recursive-binary-search-rotated)
-      + [Find Min Val Rotatd](#find-mind-val-rotated)
+      + [Find Min Val Rotated](#find-mind-val-rotated)
 
 ## Data Structures & Abstract Data Types
 ### Stack
@@ -962,7 +962,7 @@ This package impliments classic data structures and algorithms for review and ex
  <details>
  <summary>Code</summary> 
 
-      def find_min_val_rotated_array(nums):
+      def find_min_val_rotated(nums):
         if len(nums) == 1:
             return nums[0]
         left = 0
