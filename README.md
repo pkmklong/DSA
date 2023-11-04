@@ -34,6 +34,7 @@ This package impliments classic data structures and algorithms for review and ex
       + [Remove nth Node from Tail](#remove-nth-node-from-tail)
     + [Two Pointers Fast Slow](#two-pointers-fast-slow)
       + [Detect Cycle](#detect-cycle)
+    + [Binary Search Rotated](#binary-search-rotated)
 
 ## Data Structures & Abstract Data Types
 ### Stack
@@ -893,4 +894,33 @@ This package impliments classic data structures and algorithms for review and ex
              return True
        return False
 
+  </details>
+
+
+### Binary Search Rotated
+ <details>
+ <summary>Code</summary> 
+  
+      def binary_search_rotated(nums, target):
+        low = 0
+        high = len(nums) - 1
+
+        while low <= high:
+            mid = low + (high - low) // 2
+
+            if nums[mid] == target:
+                return mid
+
+            elif nums[low] <= nums[mid]:
+                if nums[low] <= target and target < nums[mid]:
+                    high = mid - 1
+                else:
+                    low = mid + 1
+            elif nums[mid] <= nums[high]:
+                if nums[mid] < target and target <= nums[high]:
+                    low = mid + 1
+                else:
+                    high = mid - 1
+
+        return False
   </details>
