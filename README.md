@@ -238,6 +238,16 @@ This package impliments classic data structures and algorithms for review and ex
                 current = temp
             self.head = prev
 
+
+    def find_middle_of_linkedlist(head):
+        slow, fast = head, head
+        # even fast reaches the last node so fast.next is None
+        # odd fast skips end so itself becomes none
+        while fast and fast.next: 
+            slow = slow.next
+            fast = fast.next.next
+        return slow
+        
 </details>
 
 ### Doubly Linked Lists
