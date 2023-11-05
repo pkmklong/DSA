@@ -3,8 +3,8 @@ This package impliments classic data structures and algorithms for review and ex
 
 ## Table of Contents
 - [DSA from Scratch](#dsa-from-scratch)
-  * [About](#About)
-  * [Data Structures & Abstract Data Types](#Data-Structures-&-Abstract-Data-Types)
+  * [About](#about)
+  * [Data Structures & Abstract Data Types](#data-structures-&-abstract-data-types)
     + [Stack](#stack)
     + [Queue](#queue)
     + [Deque](#deque)
@@ -15,7 +15,7 @@ This package impliments classic data structures and algorithms for review and ex
     + [BST](#bst)
   * [Sort Algorithms](#sort-algorithms)
     + [Bubble Sort](#bubble-sort)
-    + [Selection Sort](#Selection-sort)
+    + [Selection Sort](#selection-sort)
     + [Insertion Sort](#insertion-sort)
     + [Quick Sort](#quick-sort)
     + [Merge Sort](#merge-sort)
@@ -41,6 +41,8 @@ This package impliments classic data structures and algorithms for review and ex
     + [In Place Reversals of Linked Lists](#in-place-reversals-of-linked-lists)
       + [Fold Linked List](#fold-linked-list)
       + [Reverse  Linked List](#reverse-linked-list)
+    + [Data Structure Algos](#data-structures)
+      + [Valid Parentheses](#valid-parentheses)
 
 ## Data Structures & Abstract Data Types
 ### Stack
@@ -1036,4 +1038,29 @@ This package impliments classic data structures and algorithms for review and ex
             prev = cur # incriment prev
             cur = temp
         return prev   
+  </details>
+
+### Data Structure Algos
+### Valid Parentheses
+ <details>
+ <summary>Code</summary>
+
+      def is_valid(string):
+      stack = []
+      hashmap = {")": "(", "}": "{", "]": "["}
+
+      for char in string:
+          if char not in hashmap:
+              stack.append(char)
+          else:
+              if stack:
+                  popped_element = stack.pop()
+              else:
+                  popped_element = "*"
+
+              if hashmap[char] != popped_element:
+                  return False
+
+      return not stack
+
   </details>
