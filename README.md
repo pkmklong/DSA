@@ -1116,5 +1116,50 @@ This package impliments classic data structures and algorithms for review and ex
             for j in range(cols):
                 mat[0][j] = 0
         return mat
+
+
+    def set_to_zero(m):
+        rows = len(m)
+        cols = len(m[0])
+        f_row = False
+        f_col = False
+
+        # Check if zero in first row
+        if 0 in m[0]:
+            f_row = True
+        # Check if zero in first col
+        for i in range(rows):
+            if m[i][0] == 0:
+                f_col = True
+
+        # Iterate through matrix and if zero found at index i,j then set i,0 to zero and 0,j to zero
+        for i in range(1, rows):
+            for j in range(1, cols):
+                if m[i][j] == 0:
+                    m[i][0] = m[0][j] = 0
+
+        # Iterate through the matrix to set entire row i to zero if m[i][0] is zero
+        for i in range(1, rows): 
+            if m[i][0] == 0:
+                for j in range(cols):
+                    m[i][j] = 0
+
+        # Iterate through the matrix to set entire column j to zero if m[0][j] is zero
+        for j in range(1, cols):
+            if m[0][j] == 0:
+                for i in range(rows):
+                    m[i][j] = 0
+
+        # If f_row is True then set first row to zero
+        if f_row:
+            for j in range(cols):
+                m[0][j] = 0
+
+        # If f_col is True then set first col to zero
+        if f_col:
+            for i in range(rows):
+                m[i][0] = 0
+
+        return m
         
   </details>
