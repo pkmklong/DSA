@@ -43,7 +43,7 @@ This package impliments classic data structures and algorithms for review and ex
       + [Reverse  Linked List](#reverse-linked-list)
     + [Stacks Valid Parentheses](#stacks-valid-parentheses)
     + [Matrices](#matrices)
-     + [Set to Zero](#set-to-zero)
+      + [Set to Zero](#set-to-zero)
 
 ## Data Structures & Abstract Data Types
 ### Stack
