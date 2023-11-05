@@ -1139,12 +1139,14 @@ This package impliments classic data structures and algorithms for review and ex
                     m[i][0] = m[0][j] = 0
 
         # Iterate through the matrix to set entire row i to zero if m[i][0] is zero
+        # i remains fixed
         for i in range(1, rows): 
             if m[i][0] == 0:
                 for j in range(cols):
                     m[i][j] = 0
 
         # Iterate through the matrix to set entire column j to zero if m[0][j] is zero
+        # j remains fixed
         for j in range(1, cols):
             if m[0][j] == 0:
                 for i in range(rows):
