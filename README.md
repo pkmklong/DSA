@@ -44,6 +44,7 @@ This package impliments classic data structures and algorithms for review and ex
     + [Stacks Valid Parentheses](#stacks-valid-parentheses)
     + [Matrices](#matrices)
       + [Set to Zero](#set-to-zero)
+      + [Rotate 90 Degrees](#rotate-90-degrees)
 
 ## Data Structures & Abstract Data Types
 ### Stack
@@ -1164,4 +1165,28 @@ This package impliments classic data structures and algorithms for review and ex
 
         return m
         
+  </details>
+
+### Rotate 90 Deegrees
+ <details>
+ <summary>Code</summary>
+
+      def rotate_90_degrees(matrix):
+
+        n = len(matrix)
+
+        # Traverse the matrix
+        for row in range(n // 2):
+            for col in range(row, n - row - 1):
+                # Swap the top-left and top-right cells in the current group
+                matrix[row][col], matrix[col][n - 1 - row] = matrix[col][n - 1 - row], matrix[row][col]
+
+                # Swap the top-left and bottom-right cells in the current group 
+                matrix[row][col], matrix[n - 1 - row][n - 1 - col] = matrix[n - 1 - row][n - 1 - col], matrix[row][col]
+
+                # Swap the top-left and bottom-left cells in the current group  
+                matrix[row][col], matrix[n - 1 - col][row] = matrix[n - 1 - col][row], matrix[row][col] 
+
+        return matrix
+
   </details>
