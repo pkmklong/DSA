@@ -45,6 +45,7 @@ This package impliments classic data structures and algorithms for review and ex
     + [Matrices](#matrices)
       + [Set to Zero](#set-to-zero)
       + [Rotate 90 Degrees](#rotate-90-degrees)
+      + [Spiral Matrix to Array](#spiral-matrix-to-array)
 
 ## Data Structures & Abstract Data Types
 ### Stack
@@ -1188,5 +1189,46 @@ This package impliments classic data structures and algorithms for review and ex
                 matrix[row][col], matrix[n - 1 - col][row] = matrix[n - 1 - col][row], matrix[row][col] 
 
         return matrix
+
+  </details>
+
+### Spiral Matrix to Array
+ <details>
+ <summary>Code</summary>
+
+      def spiral_order(m):
+        direction = "right"
+        rows = len(m)
+        cols = len(m[0])
+        left_boundary, right_boundary = 0, cols - 1
+        top_boundary, bottom_boundary = 0, rows - 1
+        output_array = []
+
+        while left_boundary <= right_boundary and top_boundary <= bottom_boundary:
+            if direction == "right":
+                for c in range(left_boundary, right_boundary + 1):
+                    output_array.append(m[top_boundary][c])
+                top_boundary += 1  # Adjust top_boundary after processing the row.
+                direction = "down"  # Change direction.
+
+            elif direction == "down":
+                for r in range(top_boundary, bottom_boundary + 1):
+                    output_array.append(m[r][right_boundary])
+                right_boundary -= 1  # Adjust right_boundary after processing the column.
+                direction = "left"  # Change direction.
+
+            elif direction == "left":
+                for c in range(right_boundary, left_boundary - 1, -1):
+                    output_array.append(m[bottom_boundary][c])
+                bottom_boundary -= 1  # Adjust bottom_boundary after processing the row.
+                direction = "up"  # Change direction.
+
+            elif direction == "up":
+                for r in range(bottom_boundary, top_boundary - 1, -1):
+                    output_array.append(m[r][left_boundary])
+                left_boundary += 1  # Adjust left_boundary after processing the column.
+                direction = "right"  # Change direction.
+
+        return output_array
 
   </details>
