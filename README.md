@@ -1167,7 +1167,7 @@ This package impliments classic data structures and algorithms for review and ex
         
   </details>
 
-### Rotate 90 Deegrees
+### Rotate 90 Degrees
  <details>
  <summary>Code</summary>
 
