@@ -46,6 +46,7 @@ This package impliments classic data structures and algorithms for review and ex
       + [Set to Zero](#set-to-zero)
       + [Rotate 90 Degrees](#rotate-90-degrees)
       + [Spiral Matrix to Array](#spiral-matrix-to-array)
+    + [BFS](#bfs)
 
 ## Data Structures & Abstract Data Types
 ### Stack
@@ -1251,5 +1252,34 @@ This package impliments classic data structures and algorithms for review and ex
             direction *= -1 
 
         return result     
+
+  </details>
+
+### BFS
+ <details>
+ <summary>Code</summary>
+
+    from collections import deque  # Import the deque data structure for the queue.
+
+    def bfs(root):
+        if not root:
+            return []
+
+        result = []  # Initialize a list to store the BFS traversal result.
+        queue = deque()  # Create a queue to keep track of nodes to be visited.
+
+        queue.append(root)  # Enqueue the root node to start the traversal.
+
+        while queue:
+            current_node = queue.popleft()  # Dequeue the first node in the queue.
+            result.append(current_node.value)  # Append the current node's value to the result.
+
+            # Enqueue the child nodes (if they exist) for future exploration.
+            if current_node.left:
+                queue.append(current_node.left)
+            if current_node.right:
+                queue.append(current_node.right)
+
+        return result  # Return the BFS traversal result
 
   </details>
