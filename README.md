@@ -52,6 +52,7 @@ This package impliments classic data structures and algorithms for review and ex
       + [In Order](#in-order)
       + [Post Order](#post-order)
       + [Serialize BST](#serialize-bst)
+      + [Deserialize BST](#deserialize-bst)
 
 ## Data Structures & Abstract Data Types
 ### Stack
@@ -1482,4 +1483,36 @@ This package impliments classic data structures and algorithms for review and ex
         preorder_dfs(root, serialized_tree)
         return serialized_tree
 
+   </details>
+
+
+### Dserialize BST
+ <details>
+ <summary>Code</summary>
+
+    def deserialize_bst(values):
+        if not values:
+            return None
+
+        # Create the root of the BST.
+        root = TreeNode(values[0])
+
+        # Iterate through the remaining values to insert them into the BST.
+        for val in values[1:]:
+            insert_into_bst(root, val)
+
+        return root
+
+    def insert_into_bst(node, val):
+        if not node:
+            return TreeNode(val)
+
+        # Insert value into the appropriate subtree based on BST property.
+        if val < node.val:
+            node.left = insert_into_bst(node.left, val)
+        else:
+            node.right = insert_into_bst(node.right, val)
+
+        return node
+  
    </details>
