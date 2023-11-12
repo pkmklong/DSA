@@ -1469,7 +1469,7 @@ This package impliments classic data structures and algorithms for review and ex
  <details>
  <summary>Code</summary>
 
-       def preorder_dfs(node, serialized_tree):
+    def preorder_dfs(node, serialized_tree):
         if node is None:
             serialized_tree.append(None)
             return
