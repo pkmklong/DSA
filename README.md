@@ -1504,7 +1504,7 @@ This package impliments classic data structures and algorithms for review and ex
         return root
 
     def insert_into_bst(node, val):
-        if not node:
+        if node is None:
             return TreeNode(val)
 
         # Insert value into the appropriate subtree based on BST property.
