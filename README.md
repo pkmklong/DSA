@@ -1320,4 +1320,41 @@ This package impliments classic data structures and algorithms for review and ex
 
         return result  # Return the BFS traversal result
 
+
+    def level_order_traversal(root):
+        result = ""
+        if not root:
+            result = "None"
+            return result
+        else:
+            queues = [deque(), deque()]
+            current_queue = queues[0]
+            next_queue = queues[1]
+
+            current_queue.append(root)
+            level_number = 0
+
+            while current_queue:
+                temp = current_queue.popleft()
+                result += str(temp.data)
+
+                if temp.left:
+                    next_queue.append(temp.left)
+
+                if temp.right:
+                    next_queue.append(temp.right)
+
+                if not current_queue:
+                    level_number += 1
+
+                    if next_queue:
+                        result += " : "
+                    current_queue = queues[level_number % 2]
+                    next_queue = queues[(level_number + 1) % 2]
+
+                else:
+                    result += ", "
+
+            return result
+            
   </details>
