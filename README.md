@@ -1356,5 +1356,51 @@ This package impliments classic data structures and algorithms for review and ex
                     result += ", "
 
             return result
-            
+
+
+    from collections import deque
+
+    def level_order_traversal(root):
+        result = ""
+        # Print 'None' if the root is empty
+        if not root:
+            result = "None"
+            return result
+        else:
+            # Initializing the current queue
+            current_queue = deque()
+
+            # Initializing the dummy node
+            dummy_node = TreeNode(0)
+
+            current_queue.append(root)
+            current_queue.append(dummy_node)
+
+            # Printing nodes in level-order until the current queue remains
+            # empty
+            while current_queue:
+                # Dequeuing and printing the first element of queue
+                temp = current_queue.popleft()
+                result += str(temp.data)
+
+                # Adding dequeued node's children to the next queue
+                if temp.left:
+                    current_queue.append(temp.left)
+
+                if temp.right:
+                    current_queue.append(temp.right)
+
+                # When the dummyNode comes next in line, we print a new line and dequeue
+                # it from the queue
+                if current_queue[0] == dummy_node:
+                    current_queue.popleft()
+
+                    # If the queue is still not empty we add back the dummy node
+                    if current_queue:
+                        result += " : "
+                        current_queue.append(dummy_node)
+                else:
+                    result += ", "
+            return result
+
   </details>
