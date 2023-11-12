@@ -1486,7 +1486,7 @@ This package impliments classic data structures and algorithms for review and ex
    </details>
 
 
-### Dserialize BST
+### Deserialize BST
  <details>
  <summary>Code</summary>
 
