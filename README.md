@@ -1282,4 +1282,42 @@ This package impliments classic data structures and algorithms for review and ex
 
         return result  # Return the BFS traversal result
 
+
+            from collections import deque
+
+    class TreeNode:
+        def __init__(self, data):
+            self.data = data
+            self.left = None
+            self.right = None
+
+    def level_order_traversal(root):
+        if not root:
+            return []
+
+        result = []  # Initialize a list to store the BFS traversal result.
+        queue = deque()  # Create a queue to keep track of nodes to be visited.
+
+        queue.append(root)  # Enqueue the root node to start the traversal.
+        queue.append(None)  # Use None as a level delimiter.
+
+        while queue:
+            current_node = queue.popleft()
+
+            if current_node is None:
+                # When encountering None, it means we've finished one level. Append ":" as a delimiter.
+                result.append(":")
+                if queue:  # Check if there are more nodes in the queue.
+                    queue.append(None)  # Add a new level delimiter for the next level.
+            else:
+                result.append(current_node.data)  # Append the current node's data to the result.
+
+                # Enqueue the child nodes (if they exist) for future exploration.
+                if current_node.left:
+                    queue.append(current_node.left)
+                if current_node.right:
+                    queue.append(current_node.right)
+
+        return result  # Return the BFS traversal result
+
   </details>
