@@ -47,6 +47,10 @@ This package impliments classic data structures and algorithms for review and ex
       + [Rotate 90 Degrees](#rotate-90-degrees)
       + [Spiral Matrix to Array](#spiral-matrix-to-array)
     + [BFS](#bfs)
+    + [DFS](#dfs)
+      + [Pre Order](#pre-order)
+      + [In Order](#in-order)
+      + [Post Order](#post-order)
 
 ## Data Structures & Abstract Data Types
 ### Stack
@@ -1404,3 +1408,58 @@ This package impliments classic data structures and algorithms for review and ex
             return result
 
   </details>
+
+## DFS
+### Pre-Order
+ <details>
+ <summary>Code</summary>
+  
+    def preorder_dfs(root):
+        # base case
+        if root is None:
+            return
+
+        # visit node
+        print(root.val)
+        # recursive call left
+        preorder_dfs(root.left)
+        # recursive call right
+        preorder_dfs(root.right)
+        
+   </details>
+
+### In-Order
+ <details>
+ <summary>Code</summary>
+
+    def inorder_dfs(root):
+        # base case
+        if root is None:
+            return
+
+        # recursive call left
+        inorder_dfs(root.left)
+        # visit node
+        print(root.val)
+        # recursive call right
+        inorder_dfs(root.right)
+        
+   </details>
+
+### Post-Order
+ <details>
+ <summary>Code</summary>
+
+     def postorder_dfs(root):
+        # base case
+        if root is None:
+            return
+
+        # recursive call left
+        postorder_dfs(root.left)
+        # recursive call right
+        postorder_dfs(root.right)
+        # visit node
+        print(root.val)
+
+   </details>
