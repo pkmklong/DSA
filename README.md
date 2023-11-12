@@ -51,6 +51,7 @@ This package impliments classic data structures and algorithms for review and ex
       + [Pre Order](#pre-order)
       + [In Order](#in-order)
       + [Post Order](#post-order)
+      + [Serialize BST](#serialize-bst)
 
 ## Data Structures & Abstract Data Types
 ### Stack
@@ -1461,5 +1462,24 @@ This package impliments classic data structures and algorithms for review and ex
         postorder_dfs(root.right)
         # visit node
         print(root.val)
+
+   </details>
+
+### Serialize BST
+ <details>
+ <summary>Code</summary>
+
+       def preorder_dfs(node, serialized_tree):
+        if node is None:
+            serialized_tree.append(None)
+            return
+        serialized_tree.append(node.val)
+        preorder_dfs(node.left, serialized_tree)
+        preorder_dfs(node.right, serialized_tree)
+
+    def serialize_with_preorder_dfs(root):
+        serialized_tree = []
+        preorder_dfs(root, serialized_tree)
+        return serialized_tree
 
    </details>
