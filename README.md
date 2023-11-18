@@ -54,6 +54,7 @@ This package impliments classic data structures and algorithms for review and ex
       + [Serialize BST](#serialize-bst)
       + [Deserialize BST](#deserialize-bst)
       + [Serialize Deserialize BST Exact](#serialize-deserialize-bst-exact)
+      + [Max Sum Path](#max-sum-path)
 
 ## Data Structures & Abstract Data Types
 ### Stack
@@ -1566,5 +1567,42 @@ This package impliments classic data structures and algorithms for review and ex
         stream.reverse()
         node = deserialize_helper(stream)
         return node
+
+   </details>
+
+### Max Sum Path
+ <details>
+ <summary>Code</summary>
+
+       def maxPathSum(root):
+        # Initialize a variable to keep track of the global maximum sum.
+        max_sum = float('-inf')
+
+        # Define a recursive function to compute the maximum path sum for a node.
+        def max_path_sum(node):
+            nonlocal max_sum  # Use the nonlocal keyword to modify the global max_sum.
+
+            # Base case: If the node is None, return 0 (no contribution to the path).
+            if not node:
+                return 0
+
+            # Recursively compute the maximum path sums for the left and right subtrees.
+            left_sum = max(0, max_path_sum(node.left))  # Ensure negative values are not included.
+            right_sum = max(0, max_path_sum(node.right))
+
+            # Calculate the local maximum including the current node.
+            local_max = node.val + left_sum + right_sum
+
+            # Update the global maximum if the local maximum is greater.
+            max_sum = max(max_sum, local_max)
+
+            # Return the maximum path sum starting from the current node upwards.
+            return node.val + max(left_sum, right_sum)
+
+        # Start the recursive traversal from the root node.
+        max_path_sum(root)
+
+        # The maximum path sum is stored in max_sum after the traversal.
+        return max_sum
 
    </details>
