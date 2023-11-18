@@ -55,6 +55,7 @@ This package impliments classic data structures and algorithms for review and ex
       + [Deserialize BST](#deserialize-bst)
       + [Serialize Deserialize BST Exact](#serialize-deserialize-bst-exact)
       + [Max Sum Path](#max-sum-path)
+      + [Build BST Pre-Order and In-Order Lists](#build-bst-pre-order-in-order-lists)
 
 ## Data Structures & Abstract Data Types
 ### Stack
@@ -1604,5 +1605,50 @@ This package impliments classic data structures and algorithms for review and ex
 
         # The maximum path sum is stored in max_sum after the traversal.
         return max_sum
+
+   </details>
+
+### Build BST Pre-Order In-Order Lists
+ <details>
+ <summary>Code</summary>
+
+       def build_tree_helper(p_order, i_order, left, right, mapping, p_index):
+        # Base case: If the left index exceeds the right index, there are no nodes to create.
+        if left > right:
+            return None
+
+        # Get the current root value from p_order using the p_index pointer.
+        curr = p_order[p_index[0]]
+        p_index[0] += 1
+
+        # Create a TreeNode with the current root value.
+        root = TreeNode(curr)
+
+        # If left and right are equal, it's a leaf node, so return the root.
+        if left == right:
+            return root
+
+        # Find the index of the current root value in i_order (in_index).
+        in_index = mapping[curr]
+
+        # Recursively build the left and right subtrees.
+        root.left = build_tree_helper(p_order, i_order, left, in_index - 1, mapping, p_index)
+        root.right = build_tree_helper(p_order, i_order, in_index + 1, right, mapping, p_index)
+
+        return root
+
+    def build_tree(p_order, i_order):
+        # Initialize a list containing a single element as a pointer to the next value in p_order.
+        p_index = [0]
+
+        # Create a mapping dictionary to efficiently find the index of values in i_order.
+        mapping = {}
+
+        # Populate the mapping dictionary by iterating through p_order and i_order.
+        for i in range(len(p_order)):
+            mapping[i_order[i]] = i
+
+        # Call the build_tree_helper to construct the binary tree.
+        return build_tree_helper(p_order, i_order, 0, len(p_order) - 1, mapping, p_index)
 
    </details>
