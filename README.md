@@ -53,6 +53,7 @@ This package impliments classic data structures and algorithms for review and ex
       + [Post Order](#post-order)
       + [Serialize BST](#serialize-bst)
       + [Deserialize BST](#deserialize-bst)
+      + [Serialize Deserialize BST Exact](#serialize-deserialize-bst-exact)
 
 ## Data Structures & Abstract Data Types
 ### Stack
@@ -1515,4 +1516,55 @@ This package impliments classic data structures and algorithms for review and ex
 
         return node
   
+   </details>
+
+### Serialize Deserialize BST Exact
+ <details>
+ <summary>Code</summary>
+
+     from BinaryTree import *
+    from TreeNode import *
+
+    # Initializing our marker
+    MARKER = "M"
+    m = 1
+
+    def serialize_rec(node, stream):
+        global m
+
+        if node is None:
+            stream.append(MARKER + str(m))
+            m += 1
+            return
+
+        stream.append(node.data)
+
+        serialize_rec(node.left, stream)
+        serialize_rec(node.right, stream)
+
+    # Function to serialize tree into list of integers.
+    def serialize(root):
+        stream = []
+        serialize_rec(root, stream)
+        return stream
+
+    def deserialize_helper(stream):
+        val = stream.pop()
+
+        if type(val) is str and val[0] == MARKER:
+            return None
+
+        node = TreeNode(val)
+
+        node.left = deserialize_helper(stream)
+        node.right = deserialize_helper(stream)
+
+        return node
+
+    # Function to deserialize integer list into a binary tree.
+    def deserialize(stream):
+        stream.reverse()
+        node = deserialize_helper(stream)
+        return node
+
    </details>
