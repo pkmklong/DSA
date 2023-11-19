@@ -60,6 +60,7 @@ This package impliments classic data structures and algorithms for review and ex
       + [Invert Binary Tree Breadth-First](#invert-binary-tree-breadth-first)
       + [Find kth Smallest](#find-kth-smallest)
       + [Find Lowest Common Ancestor LCA](#find-lowest-common-ancestor-lca)
+      + [Max Depth of Binary Tree](#max-depth-of-binary-tree)
 
 ## Data Structures & Abstract Data Types
 ### Stack
@@ -1876,4 +1877,28 @@ This package impliments classic data structures and algorithms for review and ex
         # Return True if the current node or any node in its subtrees is p or q
         return mid or left or right
 
+   </details>
+
+### Max Depth of Binary Tree
+ <details>
+ <summary>Code</summary>
+
+    def max_depth(root):
+        # Base case: If the current node is None, it means we have reached 
+        # beyond a leaf node, or the tree is empty. In either case, return 0.
+        if not root:
+            return 0
+
+        # Recursively find the depth of the left subtree. This call will 
+        # go down to the leftmost leaf, calculating the depth along the way.
+        left_depth = max_depth(root.left)
+
+        # Similarly, recursively find the depth of the right subtree.
+        right_depth = max_depth(root.right)
+
+        # The depth of the current tree is the maximum of the depths of the left and 
+        # right subtrees, plus 1 for the current node.
+        # This "+1" accounts for the edge between the current node and its parent.
+        return max(left_depth, right_depth) + 1
+        
    </details>
