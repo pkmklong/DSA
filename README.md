@@ -1680,11 +1680,8 @@ This package impliments classic data structures and algorithms for review and ex
         if not root:
             return None
 
-        if root.left:
-            mirror_binary_tree(root.left)
-
-        if root.right:
-            mirror_binary_tree(root.right)
+        mirror_binary_tree(root.left)
+        mirror_binary_tree(root.right)
 
         root.left, root.right = root.right, root.left
 
