@@ -1900,5 +1900,30 @@ This package impliments classic data structures and algorithms for review and ex
         # right subtrees, plus 1 for the current node.
         # This "+1" accounts for the edge between the current node and its parent.
         return max(left_depth, right_depth) + 1
+
+
+    from collections import deque
+
+    def find_max_depth(root):
+        if not root:
+            return 0
+
+        nodes_stack = deque([(root, 1)])
+
+        max_depth = 0
+
+        while nodes_stack:
+            node, depth = nodes_stack.pop()
+
+            if node.left:
+                nodes_stack.append((node.left, depth + 1))
+
+            if node.right:
+                nodes_stack.append((node.right, depth + 1))
+
+            if not node.left and not node.right:
+                max_depth = max(max_depth, depth)
+
+        return max_depth
         
    </details>
