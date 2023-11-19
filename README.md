@@ -1754,6 +1754,37 @@ This package impliments classic data structures and algorithms for review and ex
             # return None indicating the kth smallest element doesn't exist
             return None
 
+
+
+    def kth_smallest_element(root, k):
+        # Call the recursive helper function with the root and k wrapped in a list
+        # The list is used to maintain the state of k across recursive calls
+        return kth_smallest_rec(root, [k]).data
+
+    # Recursive helper function for finding the kth smallest element
+    def kth_smallest_rec(node, k):
+        # Base case: if the node is None, return None
+        if not node:
+            return None
+
+        # Recurse on the left subtree
+        left = kth_smallest_rec(node.left, k)
+        # If a node was returned from the left subtree, it is the kth smallest
+        # Hence, return it up the call stack
+        if left:
+            return left
+
+        # Process the current node
+        # Decrement the counter (k[0]) since we've visited one more node
+        k[0] -= 1
+        # If the counter reaches 0, we've found the kth smallest element
+        # Return the current node
+        if k[0] == 0:
+            return node
+
+        # Recurse on the right subtree if the kth smallest hasn't been found yet
+        return kth_smallest_rec(node.right, k)
+
    </details>
 
 
