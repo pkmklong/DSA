@@ -1825,6 +1825,37 @@ This package impliments classic data structures and algorithms for review and ex
         # Return the found LCA
         return lca[0]
 
+
+
+    def lowest_common_ancestor(root, p, q):
+        # If the current node is None, or the current node matches either p or q, 
+        # return the current node. This acts as a base case for recursion and also 
+        # checks if we have found one of the nodes we're looking for.
+        if not root or root == p or root == q:
+            return root
+
+        # Recursively search for p and q in the left subtree of the current node.
+        # If either p or q is found in the left subtree, 'left' will hold that node; 
+        # otherwise, it will be None.
+        left = lowest_common_ancestor(root.left, p, q)
+
+        # Similarly, recursively search for p and q in the right subtree.
+        # If either p or q is found in the right subtree, 'right' will hold that node; 
+        # otherwise, it will be None.
+        right = lowest_common_ancestor(root.right, p, q)
+
+        # If both 'left' and 'right' are non-None, it means that we have found both p and q in 
+        # different subtrees of the current node. Therefore, the current node is the LCA.
+        if left and right:
+            return root
+
+        # If only one of 'left' or 'right' is non-None, it means either one of the nodes was found
+        # and the other was not, or one node is an ancestor of the other. In both cases, 
+        # return the non-None node.
+        return left if left else right
+
+
+
     def lowest_common_ancestor_rec(current_node, p, q, lca):
         # Base case: if current node is None, return False
         if not current_node:
