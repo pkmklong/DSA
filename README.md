@@ -56,7 +56,7 @@ This package impliments classic data structures and algorithms for review and ex
       + [Serialize Deserialize BST Exact](#serialize-deserialize-bst-exact)
       + [Max Sum Path](#max-sum-path)
       + [Build BST Pre-Order and In-Order Lists](#build-bst-pre-order-in-order-lists)
-      + [Invert Binary Tree](#invert-binary-tree)
+      + [Invert Binary Tree Depth-First ](#invert-binary-tree-depth-first)
 
 ## Data Structures & Abstract Data Types
 ### Stack
@@ -1654,11 +1654,11 @@ This package impliments classic data structures and algorithms for review and ex
 
    </details>
    
-### Mirror (Invert) Binary Tree
+### Invert Binary Tree Depth-First 
  <details>
  <summary>Code</summary>
 
-    def mirror_binary_tree(root):
+    def mirror_binary_tree_df(root):
       # base case
       if root is None:
         return None
@@ -1667,8 +1667,8 @@ This package impliments classic data structures and algorithms for review and ex
       root.left, root.right = root.right, root.left
 
       # recursive call
-      mirror_binary_tree(root.left)
-      mirror_binary_tree(root.right)
+      mirror_binary_tree_df(root.left)
+      mirror_binary_tree_df(root.right)
 
       return root
 
