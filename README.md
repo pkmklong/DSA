@@ -56,7 +56,7 @@ This package impliments classic data structures and algorithms for review and ex
       + [Serialize Deserialize BST Exact](#serialize-deserialize-bst-exact)
       + [Max Sum Path](#max-sum-path)
       + [Build BST Pre-Order and In-Order Lists](#build-bst-pre-order-in-order-lists)
-      + [Mirror (Invert) Binary Tree](#mirror-(invert)-binary-tree)
+      + [Invert Binary Tree](#invert-binary-tree)
 
 ## Data Structures & Abstract Data Types
 ### Stack
