@@ -56,6 +56,7 @@ This package impliments classic data structures and algorithms for review and ex
       + [Serialize Deserialize BST Exact](#serialize-deserialize-bst-exact)
       + [Max Sum Path](#max-sum-path)
       + [Build BST Pre-Order and In-Order Lists](#build-bst-pre-order-in-order-lists)
+      + [Mirror (Invert) Binary Tree](#mirror-(invert)-binary-tree)
 
 ## Data Structures & Abstract Data Types
 ### Stack
@@ -1650,5 +1651,24 @@ This package impliments classic data structures and algorithms for review and ex
 
         # Call the build_tree_helper to construct the binary tree.
         return build_tree_helper(p_order, i_order, 0, len(p_order) - 1, mapping, p_index)
+
+   </details>
+### Mirror (Invert) Binary Tree
+ <details>
+ <summary>Code</summary>
+
+    def mirror_binary_tree(root):
+      # base case
+      if root is None:
+        return None
+
+      # perform swap
+      root.left, root.right = root.right, root.left
+
+      # recursive call
+      mirror_binary_tree(root.left)
+      mirror_binary_tree(root.right)
+
+      return root
 
    </details>
