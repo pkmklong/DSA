@@ -58,6 +58,7 @@ This package impliments classic data structures and algorithms for review and ex
       + [Build BST Pre-Order and In-Order Lists](#build-bst-pre-order-in-order-lists)
       + [Invert Binary Tree Depth-First](#invert-binary-tree-depth-first)
       + [Invert Binary Tree Breadth-First](#invert-binary-tree-breadth-first)
+      + [Find kth Smallest](#find-kth-smallest)
 
 ## Data Structures & Abstract Data Types
 ### Stack
@@ -1715,3 +1716,45 @@ This package impliments classic data structures and algorithms for review and ex
         return root
 
    </details>
+
+### Find kth Smallest 
+ <details>
+ <summary>Code</summary>
+  
+    def kth_smallest_element(root, k):
+        # Helper function for in-order traversal of the tree
+        def inorder(node):
+            # Base case: return if node is None or if we've found k elements already
+            if node is None or len(traversal) >= k:
+                return
+
+            # Recursive call on the left subtree
+            inorder(node.left)
+
+            # Process the current node
+            # Only add to traversal list if fewer than k elements have been found
+            if len(traversal) < k:
+                traversal.append(node.data)
+
+            # Recursive call on the right subtree
+            inorder(node.right)
+
+        # Initialize an empty list to store the traversed elements
+        traversal = []
+
+        # Start in-order traversal from the root
+        inorder(root)
+
+        # Check if we found k elements and return the kth smallest
+        # If the list is not empty, return the last element (kth smallest)
+        if traversal:
+            return traversal[-1]
+        else: 
+            # If the list is empty (e.g., if k is larger than the number of nodes),
+            # return None indicating the kth smallest element doesn't exist
+            return None
+
+   </details>
+
+
+   
