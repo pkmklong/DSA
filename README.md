@@ -1818,16 +1818,6 @@ This package impliments classic data structures and algorithms for review and ex
 
 
     def lowest_common_ancestor(root, p, q):
-        # Mutable container to hold the LCA
-        lca = [None]
-        # Start the recursive function
-        lowest_common_ancestor_rec(root, p, q, lca)
-        # Return the found LCA
-        return lca[0]
-
-
-
-    def lowest_common_ancestor(root, p, q):
         # If the current node is None, or the current node matches either p or q, 
         # return the current node. This acts as a base case for recursion and also 
         # checks if we have found one of the nodes we're looking for.
@@ -1855,6 +1845,15 @@ This package impliments classic data structures and algorithms for review and ex
         return left if left else right
 
 
+
+    def lowest_common_ancestor(root, p, q):
+        # Mutable container to hold the LCA
+        lca = [None]
+        # Start the recursive function
+        lowest_common_ancestor_rec(root, p, q, lca)
+        # Return the found LCA
+        return lca[0]
+        
 
     def lowest_common_ancestor_rec(current_node, p, q, lca):
         # Base case: if current node is None, return False
