@@ -56,7 +56,8 @@ This package impliments classic data structures and algorithms for review and ex
       + [Serialize Deserialize BST Exact](#serialize-deserialize-bst-exact)
       + [Max Sum Path](#max-sum-path)
       + [Build BST Pre-Order and In-Order Lists](#build-bst-pre-order-in-order-lists)
-      + [Invert Binary Tree Depth-First ](#invert-binary-tree-depth-first)
+      + [Invert Binary Tree Depth-First](#invert-binary-tree-depth-first)
+      + [Invert Binary Tree Breadth-First](#invert-binary-tree-breadth-first)
 
 ## Data Structures & Abstract Data Types
 ### Stack
@@ -1671,5 +1672,32 @@ This package impliments classic data structures and algorithms for review and ex
       mirror_binary_tree_df(root.right)
 
       return root
+
+   </details>
+
+
+### Invert Binary Tree Breadth-First 
+ <details>
+ <summary>Code</summary>
+  
+       def invert_tree_breadth_first(root):
+        if not root:
+            return None
+
+        queue = deque([root])
+
+        while queue:
+            current_node = queue.popleft()
+
+            # Swap the children of the current node
+            current_node.left, current_node.right = current_node.right, current_node.left
+
+            # Add the children to the queue for subsequent processing
+            if current_node.left:
+                queue.append(current_node.left)
+            if current_node.right:
+                queue.append(current_node.right)
+
+        return root
 
    </details>
