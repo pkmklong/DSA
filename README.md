@@ -1659,6 +1659,7 @@ This package impliments classic data structures and algorithms for review and ex
  <details>
  <summary>Code</summary>
 
+    # pre-order traversal
     def mirror_binary_tree_df(root):
       # base case
       if root is None:
@@ -1672,6 +1673,22 @@ This package impliments classic data structures and algorithms for review and ex
       mirror_binary_tree_df(root.right)
 
       return root
+
+    # post-order traversal
+    def mirror_binary_tree(root):
+
+        if not root:
+            return None
+
+        if root.left:
+            mirror_binary_tree(root.left)
+
+        if root.right:
+            mirror_binary_tree(root.right)
+
+        root.left, root.right = root.right, root.left
+
+        return root
 
    </details>
 
