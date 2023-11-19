@@ -59,6 +59,7 @@ This package impliments classic data structures and algorithms for review and ex
       + [Invert Binary Tree Depth-First](#invert-binary-tree-depth-first)
       + [Invert Binary Tree Breadth-First](#invert-binary-tree-breadth-first)
       + [Find kth Smallest](#find-kth-smallest)
+      + [Find Lowest Common Ancestor LCA](#find-lowest-common-ancestor-lca)
 
 ## Data Structures & Abstract Data Types
 ### Stack
@@ -1787,5 +1788,31 @@ This package impliments classic data structures and algorithms for review and ex
 
    </details>
 
+### Find Lowest Common Ancestor LCA
+ <details>
+ <summary>Code</summary>
 
-   
+    def lowest_common_ancestor(root, p, q):
+        # Base case: If we reach the end of a path (root is None), 
+        # or find either p or q, return root (which could be None, p, or q)
+        if not root or root == p or root == q:
+            return root
+
+        # Recursively search for p and q in the left subtree
+        left = lowest_common_ancestor(root.left, p, q)
+
+        # Recursively search for p and q in the right subtree
+        right = lowest_common_ancestor(root.right, p, q)
+
+        # If both left and right are not None, it means we found p and q in 
+        # different subtrees, so the current node is the LCA
+        if left and right:
+            return root
+
+        # If only one of left or right is not None, return the one that is not None.
+        # This could be a situation where:
+        #   1. One of p or q is in the subtree, and the other is the current node.
+        #   2. Both p and q are in one subtree, and we're returning the LCA found in that subtree.
+        return left if left else right
+
+   </details>
