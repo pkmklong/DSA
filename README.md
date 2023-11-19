@@ -1815,4 +1815,35 @@ This package impliments classic data structures and algorithms for review and ex
         #   2. Both p and q are in one subtree, and we're returning the LCA found in that subtree.
         return left if left else right
 
+
+
+    def lowest_common_ancestor(root, p, q):
+        # Mutable container to hold the LCA
+        lca = [None]
+        # Start the recursive function
+        lowest_common_ancestor_rec(root, p, q, lca)
+        # Return the found LCA
+        return lca[0]
+
+    def lowest_common_ancestor_rec(current_node, p, q, lca):
+        # Base case: if current node is None, return False
+        if not current_node:
+            return False
+
+        # Check recursively if the left subtree contains either p or q
+        left = lowest_common_ancestor_rec(current_node.left, p, q, lca)
+        # Check recursively if the right subtree contains either p or q
+        right = lowest_common_ancestor_rec(current_node.right, p, q, lca)
+
+        # Check if the current node itself is either p or q
+        mid = current_node == p or current_node == q
+
+        # If any two of the three checks (left, right, mid) are True,
+        # it means this is the common ancestor of p and q
+        if mid + left + right >= 2:
+            lca[0] = current_node
+
+        # Return True if the current node or any node in its subtrees is p or q
+        return mid or left or right
+
    </details>
