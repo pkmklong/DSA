@@ -61,6 +61,7 @@ This package impliments classic data structures and algorithms for review and ex
       + [Find kth Smallest](#find-kth-smallest)
       + [Find Lowest Common Ancestor LCA](#find-lowest-common-ancestor-lca)
       + [Max Depth of Binary Tree](#max-depth-of-binary-tree)
+      + [Same Tree](#same-tree)
 
 ## Data Structures & Abstract Data Types
 ### Stack
@@ -1926,4 +1927,23 @@ This package impliments classic data structures and algorithms for review and ex
 
         return max_depth
         
+   </details>
+
+
+### Same Tree
+ <details>
+ <summary>Code</summary>
+
+    def is_same_tree(p, q):
+        # Base case: If both nodes are None, they are the same.
+        if not p and not q:
+            return True
+
+        # If one node is None and the other isn't, or if the values differ, the trees aren't the same.
+        if not p or not q or p.value != q.value:
+            return False
+
+        # Recursively compare the left and right subtrees.
+        return is_same_tree(p.left, q.left) and is_same_tree(p.right, q.right)
+
    </details>
