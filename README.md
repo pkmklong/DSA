@@ -1946,4 +1946,15 @@ This package impliments classic data structures and algorithms for review and ex
         # Recursively compare the left and right subtrees.
         return is_same_tree(p.left, q.left) and is_same_tree(p.right, q.right)
 
+
+    def same_tree(p, q):
+        if (not p) and (not q):
+            return True
+        elif (not p) or (not q):
+            return False
+        elif p.data != q.data:
+            return False
+
+        return same_tree(p.left, q.left) and same_tree(p.right, q.right)
+        
    </details>
