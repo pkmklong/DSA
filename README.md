@@ -2042,5 +2042,41 @@ This package impliments classic data structures and algorithms for review and ex
                # For the right subtree, the current node's value becomes the new low limit.
                # The right child must have a value greater than the current node's value.
                validate(node.right, node.value, high)
-               
+
+
+
+    import math
+
+    def validate_bst(root):
+        # Initialize a list with one element, -infinity, to keep track of the last visited node's value.
+        # Using a list allows the value to be mutable and updated across recursive calls.
+        prev = [-math.inf]
+        # Call the helper function to validate the BST.
+        return validate_bst_helper(root, prev)
+
+    # Helper function to validate if a binary tree is a BST.
+    def validate_bst_helper(root, prev):
+        # Base case: If the current node is None, return True, as an empty tree is a valid BST.
+        if not root:
+             return True
+
+        # Recursively validate the left subtree.
+        # If the left subtree is not a valid BST, return False immediately.
+        if not validate_bst_helper(root.left, prev):
+            return False
+
+        # Check the current node's value against the last visited node's value (stored in prev).
+        # If the current node's value is not greater than the last visited node's value,
+        # the tree is not a valid BST.
+        if root.data <= prev[0]:
+            return False
+
+        # Update prev with the current node's value before moving to the right subtree.
+        prev[0] = root.data
+
+        # Recursively validate the right subtree.
+        # The result of this call determines the validity of the entire 
+        # subtree rooted at the current node.
+        return validate_bst_helper(root.right, prev)
+
    </details>
