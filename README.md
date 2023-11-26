@@ -1991,4 +1991,27 @@ This package impliments classic data structures and algorithms for review and ex
         # Recursively check the left and right subtrees of p and q.
         return isSameTree(p.left, q.left) and isSameTree(p.right, q.right)
 
+
+
+    # Function to check if sub_root is a subtree of root
+    def is_subtree(root, sub_root):
+        if not root:
+            return False
+
+        if is_identical(root, sub_root):
+            return True
+
+        return is_subtree(root.left, sub_root) or is_subtree(root.right, sub_root)
+
+    # Function to check if two nodes are identical
+    def is_identical(node1, node2):
+        if not node1 and not node2:
+            return True
+        if not node1 or not node2:
+            return False
+
+        return (node1.data == node2.data and
+                is_identical(node1.left, node2.left) and
+                is_identical(node1.right, node2.right))
+
    </details>
