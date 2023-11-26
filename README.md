@@ -2128,4 +2128,49 @@ This package impliments classic data structures and algorithms for review and ex
         # If the word is not found in any path, return False
         return False
 
+
+
+    def word_search(grid, word):
+        # Get the dimensions of the grid
+        n = len(grid)
+        m = len(grid[0])
+
+        # Iterate over each cell in the grid as potential starting points
+        for row in range(n):
+            for col in range(m):
+                # If the word is found starting from this cell, return True
+                if depth_first_search(row, col, word, grid):
+                    return True
+
+        # If the word is not found in any path, return False
+        return False
+
+    # Apply backtracking on every element to search the required word
+    def depth_first_search(row, col, word, grid):
+        # Base case: if the entire word is matched, return True
+        if len(word) == 0:
+            return True
+
+        # Check if the current cell is out of bounds, or the character in the grid cell
+        # does not match the first character of the word
+        if row < 0 or row >= len(grid) or col < 0 or col >= len(grid[0]) \
+                or grid[row][col].lower() != word[0].lower():
+            return False
+
+        # Temporarily mark the current cell as visited by changing its value
+        grid[row][col] = '*'
+
+        # Explore all four adjacent directions (up, down, left, right)
+        for rowOffset, colOffset in [(0, 1), (1, 0), (0, -1), (-1, 0)]:
+            # Recursively check the next character of the word in the adjacent cells
+            if depth_first_search(row + rowOffset, col + colOffset, word[1:], grid):
+                # If the word is found in any direction, return True
+                return True
+
+        # Restore the original value of the cell (backtracking)
+        grid[row][col] = word[0]
+
+        # Return False if the word is not found in any direction from this cell
+        return False
+        
    </details>
