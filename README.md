@@ -64,6 +64,7 @@ This package impliments classic data structures and algorithms for review and ex
       + [Same Tree](#same-tree)
       + [Is Subtree](#is-subtree)
       + [Validate BST](#validate-bst)
+    + [Word Search Using Backtracking](#word-search-using-backtracking)
 
 ## Data Structures and Abstract Data Types
 ### Stack
@@ -2079,5 +2080,52 @@ This package impliments classic data structures and algorithms for review and ex
         # The result of this call determines the validity of the entire 
         # subtree rooted at the current node.
         return validate_bst_helper(root.right, prev)
+
+   </details>
+
+
+### Word Search Using Backtracking
+ <details>
+ <summary>Code</summary>
+  
+    def exist(board, word):
+        # Define the backtracking function that will be used to check
+        # if the word exists starting from a specific cell
+        def backtrack(row, col, index):
+            # If the entire word is matched, return True
+            if index == len(word):
+                return True
+            # Check if the current cell is out of bounds or the character doesn't match
+            # the current character in the word
+            if (row < 0 or row >= len(board) or col < 0 or col >= len(board[0]) or
+                    word[index] != board[row][col]):
+                return False
+
+            # Temporarily mark the current cell as visited by replacing its value
+            temp, board[row][col] = board[row][col], '#'
+
+            # Recursively explore all four adjacent directions (up, down, left, right)
+            # and check if the word can be formed from this cell
+            found = (backtrack(row + 1, col, index + 1) or  # Down
+                     backtrack(row - 1, col, index + 1) or  # Up
+                     backtrack(row, col + 1, index + 1) or  # Right
+                     backtrack(row, col - 1, index + 1))    # Left
+
+            # Restore the original value of the cell (unmark it as visited)
+            board[row][col] = temp
+
+            # Return True if the word is found in any direction
+            return found
+
+        # Iterate through each cell in the grid as a potential starting point
+        for i in range(len(board)):
+            for j in range(len(board[0])):
+                # Start the backtracking process from the current cell
+                if backtrack(i, j, 0):
+                    # If the word is found, return True
+                    return True
+
+        # If the word is not found in any path, return False
+        return False
 
    </details>
