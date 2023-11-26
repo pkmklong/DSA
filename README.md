@@ -2045,6 +2045,7 @@ This package impliments classic data structures and algorithms for review and ex
 
 
 
+    ### with Inoder traversal - is always increasing (left, root, right)
     import math
 
     def validate_bst(root):
