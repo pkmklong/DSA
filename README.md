@@ -1993,7 +1993,6 @@ This package impliments classic data structures and algorithms for review and ex
 
 
 
-    # Function to check if sub_root is a subtree of root
     def is_subtree(root, sub_root):
         if not root:
             return False
@@ -2003,7 +2002,6 @@ This package impliments classic data structures and algorithms for review and ex
 
         return is_subtree(root.left, sub_root) or is_subtree(root.right, sub_root)
 
-    # Function to check if two nodes are identical
     def is_identical(node1, node2):
         if not node1 and not node2:
             return True
