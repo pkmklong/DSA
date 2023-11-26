@@ -62,6 +62,7 @@ This package impliments classic data structures and algorithms for review and ex
       + [Find Lowest Common Ancestor LCA](#find-lowest-common-ancestor-lca)
       + [Max Depth of Binary Tree](#max-depth-of-binary-tree)
       + [Same Tree](#same-tree)
+      + [Is Subtree](#is-subtree)
 
 ## Data Structures & Abstract Data Types
 ### Stack
@@ -1957,4 +1958,37 @@ This package impliments classic data structures and algorithms for review and ex
 
         return same_tree(p.left, q.left) and same_tree(p.right, q.right)
         
+   </details>
+
+### Is Subtree
+ <details>
+ <summary>Code</summary>
+
+    def isSubtree(root, sub_root):
+        # If sub_root is None, it's universally considered a subtree of any tree, including an empty tree.
+        if not sub_root:
+            return True
+        # If root is None but sub_root is not, then sub_root can't be a subtree of root.
+        if not root:
+            return False
+
+        # Use a helper function to check if the tree rooted at 'root' is the same as sub_root.
+        if isSameTree(root, sub_root):
+            return True
+
+        # Recursively check if sub_root is a subtree of either the left or right subtree of root.
+        # The subtree is found if it matches either left or right subtree of the current node.
+        return isSubtree(root.left, sub_root) or isSubtree(root.right, sub_root)
+
+    def isSameTree(p, q):
+        # Base case: If both nodes are None, they are the same (end of branches).
+        if not p and not q:
+            return True
+        # If one node is None and the other isn't, or if their values differ,
+        # the trees rooted at these nodes are not the same.
+        if not p or not q or p.value != q.value:
+            return False
+        # Recursively check the left and right subtrees of p and q.
+        return isSameTree(p.left, q.left) and isSameTree(p.right, q.right)
+
    </details>
