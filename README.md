@@ -63,6 +63,7 @@ This package impliments classic data structures and algorithms for review and ex
       + [Max Depth of Binary Tree](#max-depth-of-binary-tree)
       + [Same Tree](#same-tree)
       + [Is Subtree](#is-subtree)
+      + [Validate BST](#validate-bst)
 
 ## Data Structures and Abstract Data Types
 ### Stack
@@ -2012,4 +2013,34 @@ This package impliments classic data structures and algorithms for review and ex
                 is_identical(node1.left, node2.left) and
                 is_identical(node1.right, node2.right))
 
+   </details>
+
+### Validate BST
+ <details>
+ <summary>Code</summary>
+  
+    def isValidBST(root):
+        # Start the validation process with the full range of valid values.
+        # The entire valid range is considered initially (from negative to positive infinity).
+        return validate(root, float('-inf'), float('inf'))
+
+    def validate(node, low, high):
+        # Base case: An empty node is considered valid.
+        if not node:
+            return True
+
+        # Check if the current node's value is within the valid range.
+        # It must be greater than the low limit and less than the high limit.
+        if node.value <= low or node.value >= high:
+            return False
+
+        # Recursively check the left subtree.
+        # For the left subtree, the current node's value becomes the new high limit.
+        # The left child must have a value less than the current node's value.
+        return validate(node.left, low, node.value) and \
+               # Recursively check the right subtree.
+               # For the right subtree, the current node's value becomes the new low limit.
+               # The right child must have a value greater than the current node's value.
+               validate(node.right, node.value, high)
+               
    </details>
