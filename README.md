@@ -4,7 +4,7 @@ This package impliments classic data structures and algorithms for review and ex
 ## Table of Contents
 - [DSA from Scratch](#dsa-from-scratch)
   * [About](#about)
-  * [Data Structures & Abstract Data Types](#data-structures-&-abstract-data-types)
+  * [Data Structures and Abstract Data Types](#data-structures-and-abstract-data-types)
     + [Stack](#stack)
     + [Queue](#queue)
     + [Deque](#deque)
@@ -64,7 +64,7 @@ This package impliments classic data structures and algorithms for review and ex
       + [Same Tree](#same-tree)
       + [Is Subtree](#is-subtree)
 
-## Data Structures & Abstract Data Types
+## Data Structures and Abstract Data Types
 ### Stack
 <details>
  <summary>Code</summary>
