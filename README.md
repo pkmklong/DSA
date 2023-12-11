@@ -2221,4 +2221,31 @@ This package impliments classic data structures and algorithms for review and ex
 
         return all(value == 0 for value in char_dict.values())
 
+
+    def is_anagram(str1, str2):
+        if len(str1) != len(str2):
+            return False
+
+        table = {}
+
+        for i in str1:
+          if i in table:
+            table[i] += 1
+
+          else:
+            table[i] = 1
+
+        for i in str2:
+          if i in table:
+            table[i] -= 1
+
+          else:
+            return False
+
+        for key in table:
+            if table[key] != 0:
+                return False
+
+        return True
+        
    </details>
