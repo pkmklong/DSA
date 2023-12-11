@@ -65,6 +65,7 @@ This package impliments classic data structures and algorithms for review and ex
       + [Is Subtree](#is-subtree)
       + [Validate BST](#validate-bst)
     + [Word Search Using Backtracking](#word-search-using-backtracking)
+    + [Heaps, Hashing, Tracking](#heaps-hashing-tracking)
 
 ## Data Structures and Abstract Data Types
 ### Stack
@@ -2173,4 +2174,51 @@ This package impliments classic data structures and algorithms for review and ex
         # Return False if the word is not found in any direction from this cell
         return False
         
+   </details>
+   
+### Heaps, Hashing, Tracking
+ <details>
+ <summary>Code</summary>
+
+def is_anagram(str1, str2):
+    """
+    Check if two strings are anagrams of each other.
+
+    An anagram is a word or phrase formed by rearranging the letters of a different word or phrase,
+    typically using all the original letters exactly once. This function checks if the two provided
+    strings are anagrams of each other.
+
+    Parameters:
+    str1 (str): The first string to be compared.
+    str2 (str): The second string to be compared.
+
+    Returns:
+    bool: True if str1 and str2 are anagrams, False otherwise.
+
+    Example:
+    >>> is_anagram("listen", "silent")
+    True
+    >>> is_anagram("hello", "world")
+    False
+    """
+
+    if len(str1) == 0 or len(str1) != len(str2):
+        return False
+    
+    char_dict = {}
+
+    for char in str1:
+        if char not in char_dict:
+            char_dict[char] = 1
+        else:
+            char_dict[char] += 1
+    
+    for char in str2:
+        if char not in char_dict:
+            return False  # This character was not in str1
+        else:
+            char_dict[char] -= 1
+
+    return all(value == 0 for value in char_dict.values())
+
    </details>
