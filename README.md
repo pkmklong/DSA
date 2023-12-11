@@ -2180,45 +2180,45 @@ This package impliments classic data structures and algorithms for review and ex
  <details>
  <summary>Code</summary>
 
-def is_anagram(str1, str2):
-    """
-    Check if two strings are anagrams of each other.
+    def is_anagram(str1, str2):
+        """
+        Check if two strings are anagrams of each other.
 
-    An anagram is a word or phrase formed by rearranging the letters of a different word or phrase,
-    typically using all the original letters exactly once. This function checks if the two provided
-    strings are anagrams of each other.
+        An anagram is a word or phrase formed by rearranging the letters of a different word or phrase,
+        typically using all the original letters exactly once. This function checks if the two provided
+        strings are anagrams of each other.
 
-    Parameters:
-    str1 (str): The first string to be compared.
-    str2 (str): The second string to be compared.
+        Parameters:
+        str1 (str): The first string to be compared.
+        str2 (str): The second string to be compared.
 
-    Returns:
-    bool: True if str1 and str2 are anagrams, False otherwise.
+        Returns:
+        bool: True if str1 and str2 are anagrams, False otherwise.
 
-    Example:
-    >>> is_anagram("listen", "silent")
-    True
-    >>> is_anagram("hello", "world")
-    False
-    """
+        Example:
+        >>> is_anagram("listen", "silent")
+        True
+        >>> is_anagram("hello", "world")
+        False
+        """
 
-    if len(str1) == 0 or len(str1) != len(str2):
-        return False
-    
-    char_dict = {}
+        if len(str1) == 0 or len(str1) != len(str2):
+            return False
 
-    for char in str1:
-        if char not in char_dict:
-            char_dict[char] = 1
-        else:
-            char_dict[char] += 1
-    
-    for char in str2:
-        if char not in char_dict:
-            return False  # This character was not in str1
-        else:
-            char_dict[char] -= 1
+        char_dict = {}
 
-    return all(value == 0 for value in char_dict.values())
+        for char in str1:
+            if char not in char_dict:
+                char_dict[char] = 1
+            else:
+                char_dict[char] += 1
+
+        for char in str2:
+            if char not in char_dict:
+                return False  # This character was not in str1
+            else:
+                char_dict[char] -= 1
+
+        return all(value == 0 for value in char_dict.values())
 
    </details>
