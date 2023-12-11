@@ -66,6 +66,7 @@ This package impliments classic data structures and algorithms for review and ex
       + [Validate BST](#validate-bst)
     + [Word Search Using Backtracking](#word-search-using-backtracking)
     + [Heaps, Hashing, Tracking](#heaps-hashing-tracking)
+    + [Contains Duplicates](#contains-duplicates)
 
 ## Data Structures and Abstract Data Types
 ### Stack
@@ -2249,3 +2250,63 @@ This package impliments classic data structures and algorithms for review and ex
         return True
         
    </details>
+
+### Contains Duplicates
+ <details>
+ <summary>Code</summary>
+
+    def contains_duplicate(nums):
+        """
+        Check if the list contains any duplicates.
+
+        Parameters:
+        nums (list): A list of integers to be checked for duplicates.
+
+        Returns:
+        bool: True if any value appears at least twice in the list, False if every element is distinct.
+
+        Example:
+        >>> contains_duplicate([1, 2, 3, 4])
+        False
+        >>> contains_duplicate([1, 2, 3, 3])
+        True
+        """
+
+        seen = set()
+
+        for n in nums:
+            if n in seen:
+                return True
+            seen.add(n)
+
+        return False
+
+
+    def contains_duplicate(nums):
+        """
+        Check if the list contains any duplicates.
+
+        Parameters:
+        nums (list): A list of integers to be checked for duplicates.
+
+        Returns:
+        bool: True if any value appears at least twice in the list, False if every element is distinct.
+
+        Example:
+        >>> contains_duplicate([1, 2, 3, 4])
+        False
+        >>> contains_duplicate([1, 2, 3, 3])
+        True
+        """
+
+        records = {}
+        for i in nums:
+            if i in records:
+                return True
+
+            records[i] = i
+        return False
+
+   </details>
+
+   
