@@ -67,6 +67,9 @@ This package impliments classic data structures and algorithms for review and ex
     + [Word Search Using Backtracking](#word-search-using-backtracking)
     + [Heaps, Hashing, Tracking](#heaps-hashing-tracking)
     + [Contains Duplicates](#contains-duplicates)
+- [ML](#ml)
+    + [Linear Regression](#linear-regression)
+    + [Logistic Regression](#logistic-regression)
 
 ## Data Structures and Abstract Data Types
 ### Stack
@@ -2309,4 +2312,167 @@ This package impliments classic data structures and algorithms for review and ex
 
    </details>
 
-   
+## ML
+
+### Linear Regression
+ <details>
+ <summary>Code</summary>
+    import numpy as np
+
+    # Linear Regression Class from scratch
+    class LinearRegression:
+        def __init__(self, learning_rate=0.01, epochs=1000):
+            self.learning_rate = learning_rate  # Learning rate for gradient descent
+            self.epochs = epochs  # Number of iterations for training
+            self.W = None  # Weights
+            self.b = None  # Bias
+
+        def fit(self, X, y):
+            """
+            Train the linear regression model using gradient descent.
+
+            Args:
+            X (numpy.ndarray): Input features (NxD matrix, where N is the number of samples and D is the number of features).
+            y (numpy.ndarray): True labels (Nx1 vector).
+            """
+            # Initialize weights and bias
+            num_samples, num_features = X.shape
+            self.W = np.zeros((num_features, 1))  # Initialize weights to zeros
+            self.b = 0  # Initialize bias to zero
+
+            # Reshape y to make sure it's a column vector
+            y = y.reshape(-1, 1)
+
+            # Gradient Descent
+            for epoch in range(self.epochs):
+                # Step 1: Make predictions (forward pass)
+                yhat = X.dot(self.W) + self.b  # Linear hypothesis
+
+                # Step 2: Compute the Mean Squared Error (MSE) loss
+                error = yhat - y
+                mse = np.mean(error ** 2)
+
+                # Step 3: Compute the gradients
+                grad_W = (1 / num_samples) * X.T.dot(error)  # Gradient with respect to weights
+                grad_b = (1 / num_samples) * np.sum(error)   # Gradient with respect to bias
+
+                # Step 4: Update the weights and bias using the gradients
+                self.W -= self.learning_rate * grad_W
+                self.b -= self.learning_rate * grad_b
+
+                # Optionally, print the loss to see progress
+                if epoch % 100 == 0:
+                    print(f"Epoch {epoch}, MSE: {mse}")
+
+        def predict(self, X):
+            """
+            Make predictions using the trained linear regression model.
+
+            Args:
+            X (numpy.ndarray): Input features (NxD matrix).
+
+            Returns:
+            numpy.ndarray: Predicted values (Nx1 vector).
+            """
+            return X.dot(self.W) + self.b
+
+    # Example Usage
+    if __name__ == "__main__":
+        # Create some example data (NxD matrix)
+        X = np.array([[1, 2], [2, 3], [3, 4], [4, 5]])  # Features
+        y = np.array([3, 5, 7, 9])  # True labels
+
+        # Initialize and train the linear regression model
+        model = LinearRegression(learning_rate=0.01, epochs=1000)
+        model.fit(X, y)
+
+        # Predict values for the input data
+        predictions = model.predict(X)
+        print("Predictions:", predictions.flatten())
+ </details>
+
+### Logistic Regression
+ <details>
+ <summary>Code</summary>
+    import numpy as np
+
+    # Logistic Regression Class from scratch
+    class LogisticRegression:
+        def __init__(self, learning_rate=0.01, epochs=1000):
+            self.learning_rate = learning_rate  # Learning rate for gradient descent
+            self.epochs = epochs  # Number of iterations for training
+            self.W = None  # Weights
+            self.b = None  # Bias
+
+        def sigmoid(self, z):
+            """
+            Compute the sigmoid function for the input z.
+            """
+            return 1 / (1 + np.exp(-z))
+
+        def fit(self, X, y):
+            """
+            Train the logistic regression model using gradient descent.
+
+            Args:
+            X (numpy.ndarray): Input features (NxD matrix, where N is the number of samples and D is the number of features).
+            y (numpy.ndarray): True labels (Nx1 vector).
+            """
+            # Initialize weights and bias
+            num_samples, num_features = X.shape
+            self.W = np.zeros((num_features, 1))  # Initialize weights to zeros
+            self.b = 0  # Initialize bias to zero
+
+            # Reshape y to make sure it's a column vector
+            y = y.reshape(-1, 1)
+
+            # Gradient Descent
+            for epoch in range(self.epochs):
+                # Step 1: Make predictions (forward pass)
+                z = X.dot(self.W) + self.b  # Linear combination
+                yhat = self.sigmoid(z)  # Sigmoid to get probabilities
+
+                # Step 2: Compute the binary cross-entropy (BCE) loss
+                error = yhat - y
+                bce = -np.mean(y * np.log(yhat + 1e-9) + (1 - y) * np.log(1 - yhat + 1e-9))
+
+                # Step 3: Compute the gradients
+                grad_W = (1 / num_samples) * X.T.dot(error)  # Gradient with respect to weights
+                grad_b = (1 / num_samples) * np.sum(error)   # Gradient with respect to bias
+
+                # Step 4: Update the weights and bias using the gradients
+                self.W -= self.learning_rate * grad_W
+                self.b -= self.learning_rate * grad_b
+
+                # Optionally, print the loss to see progress
+                if epoch % 100 == 0:
+                    print(f"Epoch {epoch}, BCE Loss: {bce}")
+
+        def predict_prob(self, X):
+            """
+            Predict the probabilities for input data X using the trained logistic regression model.
+
+            Args:
+            X (numpy.ndarray): Input features (NxD matrix).
+
+            Returns:
+            numpy.ndarray: Predicted probabilities (Nx1 vector).
+            """
+            z = X.dot(self.W) + self.b
+            return self.sigmoid(z)
+
+        def predict(self, X, threshold=0.5):
+            """
+            Predict binary class labels (0 or 1) based on a probability threshold.
+
+            Args:
+            X (numpy.ndarray): Input features (NxD matrix).
+            threshold (float): Threshold to convert probabilities to class labels (default is 0.5).
+
+            Returns:
+            numpy.ndarray: Predicted class labels (0 or 1).
+            """
+            probabilities = self.predict_prob(X)
+            return (probabilities >= threshold).astype(int)
+
+ </details>
