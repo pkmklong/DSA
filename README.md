@@ -69,6 +69,7 @@ This package impliments classic data structures and algorithms for review and ex
     + [Contains Duplicates](#contains-duplicates)
 - [ML](#ml)
     + [Linear Regression](#linear-regression)
+    + [Closed Form](#closed-form)
     + [Logistic Regression](#logistic-regression)
 
 ## Data Structures and Abstract Data Types
@@ -2390,6 +2391,36 @@ This package impliments classic data structures and algorithms for review and ex
         predictions = model.predict(X)
         print("Predictions:", predictions.flatten())
  </details>
+
+### Closed Form
+ <details>
+ <summary>Code</summary>
+
+import numpy as np
+
+def normal_equation(X, y):
+    """
+    Solve for weights W using the normal equation.
+
+    Args:
+    X (numpy.ndarray): Input features, augmented with a column of ones (NxD+1 matrix).
+    y (numpy.ndarray): Output/target values (Nx1 vector).
+
+    Returns:
+    numpy.ndarray: Weights vector (Dx1 vector).
+    """
+    # Compute the matrix inverse of X'X
+    X_transpose = X.T  # Transpose of X
+    X_transpose_X = np.dot(X_transpose, X)  # X'X
+    X_transpose_X_inv = np.linalg.inv(X_transpose_X)  # (X'X)^-1
+
+    # Compute the final weights
+    X_transpose_y = np.dot(X_transpose, y)  # X'y
+    W = np.dot(X_transpose_X_inv, X_transpose_y)  # (X'X)^-1 X'y
+
+    return W
+ </details>
+
 
 ### Logistic Regression
  <details>
