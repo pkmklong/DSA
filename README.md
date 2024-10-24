@@ -2318,6 +2318,7 @@ This package impliments classic data structures and algorithms for review and ex
 ## Arrays
 
 ### Max Subarray
+ <summary>Code</summary>
 <details>
    def max_subarray_sum(nums):
        max_ending_here = max_so_far = nums[0]  
