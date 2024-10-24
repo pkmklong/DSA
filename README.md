@@ -67,6 +67,8 @@ This package impliments classic data structures and algorithms for review and ex
     + [Word Search Using Backtracking](#word-search-using-backtracking)
     + [Heaps, Hashing, Tracking](#heaps-hashing-tracking)
     + [Contains Duplicates](#contains-duplicates)
+- [Arrays](#arrays)
+     + [max_subarray_sum](#max_subarray_sum)
 - [ML](#ml)
     + [Linear Regression](#linear-regression)
     + [Closed Form](#closed-form)
@@ -2310,6 +2312,19 @@ This package impliments classic data structures and algorithms for review and ex
 
             records[i] = i
         return False
+
+   </details>
+
+## Arrays
+
+### Max Subarray
+<details>
+   def max_subarray_sum(nums):
+       max_ending_here = max_so_far = nums[0]  
+       for x in nums[1:]:
+           max_ending_here = max(x, max_ending_here + x)
+           max_so_far = max(max_ending_here, max_so_far)
+       return max_so_far
 
    </details>
 
