@@ -2319,6 +2319,7 @@ This package impliments classic data structures and algorithms for review and ex
 ## Arrays
 
 ### Max Subarray
+ 
  <summary>Code</summary>
  <details>
   
@@ -2332,6 +2333,7 @@ This package impliments classic data structures and algorithms for review and ex
    </details>
 
 ### Smallest Window to Sort
+ 
  <summary>Code</summary>
  <details>
     
