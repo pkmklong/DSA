@@ -2320,8 +2320,8 @@ This package impliments classic data structures and algorithms for review and ex
 
 ### Max Subarray
  
- <summary>Code</summary>
  <details>
+ <summary>Code</summary>
   
     def max_subarray_sum(nums):
        max_ending_here = max_so_far = nums[0]  
@@ -2334,8 +2334,8 @@ This package impliments classic data structures and algorithms for review and ex
 
 ### Smallest Window to Sort
  
- <summary>Code</summary>
  <details>
+ <summary>Code</summary>
     
     def smallest_window_to_sort(nums):
 
