@@ -68,7 +68,8 @@ This package impliments classic data structures and algorithms for review and ex
     + [Heaps, Hashing, Tracking](#heaps-hashing-tracking)
     + [Contains Duplicates](#contains-duplicates)
 - [Arrays](#arrays)
-     + [max_subarray_sum](#max_subarray_sum)
+     + [max_subarray_sum](#max-subarray-sum)
+     + [smallest_window_to_sort](#smallest-window-to-sort)
 - [ML](#ml)
     + [Linear Regression](#linear-regression)
     + [Closed Form](#closed-form)
@@ -2329,6 +2330,29 @@ This package impliments classic data structures and algorithms for review and ex
        return max_so_far
 
    </details>
+
+### Smallest Window to Sort
+ <summary>Code</summary>
+ <details>
+    
+    def smallest_window_to_sort(nums):
+
+        l, r = None, None
+        n = len(nums)
+        max_seen, min_seen = -float("inf"),  float("inf")
+
+        for i in range(n-1, -1, -1):
+            min_seen = min(min_seen, nums[i])
+            if nums[i] > min_seen:
+                l = i
+
+        for i in range(n):
+            max_seen = max(max_seen, nums[i])
+            if nums[i] < max_seen:
+                r = i
+
+        return l, r
+ </details>
 
 ## ML
 
